@@ -87,3 +87,8 @@ Optional improvements I can make
 Make the footer a responsive multi-column layout (Opening Hours + Help + Latest Offers) that collapses to a single column on narrow screens.
 Replace the ASCII separator with Divider() and better spacing.
 Extract the opening hours content into a data structure or localization file if you plan to update it often.
+
+**PROMPT 5**
+
+In the middle of the footer, add the title "Help and Information" in the same style as "Opening Hours". Underneath this title, instead of displaying information, create two buttons stacked vertically on top of each other. On top, the button should say "search", which will send the user to a search page (can be a placeholder). The secondd button should say "Terms & Conditions of Sale Policy", which will not have an output.
+
