@@ -1,0 +1,175 @@
+import 'package:flutter/material.dart';
+
+/// Reusable site header used on all pages.
+///
+/// - Shows the logo on the left.
+/// - Shows `Home` and `About` buttons next to the logo.
+/// - The active item can be underlined by passing `active` = 'home'|'about'.
+class SiteHeader extends StatelessWidget {
+  final String? active; // 'home' | 'about' | null
+
+  const SiteHeader({super.key, this.active});
+
+  @override
+  Widget build(BuildContext context) {
+    void navigateToHome() {
+      Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+    }
+
+    void navigateToAbout() {
+      Navigator.pushNamed(context, '/about');
+    }
+
+    final buttonStyle = TextButton.styleFrom(
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.grey,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      textStyle: const TextStyle(fontSize: 14),
+    );
+
+    TextStyle underlineIf(String key) {
+      if (active == key) {
+        return const TextStyle(decoration: TextDecoration.underline);
+      }
+      return const TextStyle();
+    }
+
+    return Container(
+      height: 100,
+      color: Colors.white,
+      child: Column(
+        children: [
+          // Top banner remains part of the header for now; keep existing colour
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            color: const Color(0xFF4d2963),
+            child: const Text(
+              'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ),
+          // Main header row with logo, home/about buttons and icon buttons
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: navigateToHome,
+                    child: Image.network(
+                      'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                      height: 18,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey[300],
+                          width: 18,
+                          height: 18,
+                          child: const Center(
+                            child: Icon(Icons.image_not_supported,
+                                color: Colors.grey),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+
+                  const SizedBox(width: 12),
+
+                  // Home button
+                  TextButton(
+                    onPressed: navigateToHome,
+                    style: buttonStyle,
+                    child: Text(
+                      'home'.toUpperCase(),
+                      style: underlineIf('home')
+                          .merge(const TextStyle(color: Colors.grey)),
+                    ),
+                  ),
+
+                  const SizedBox(width: 8),
+
+                  // About button
+                  TextButton(
+                    onPressed: navigateToAbout,
+                    style: buttonStyle,
+                    child: Text(
+                      'about'.toUpperCase(),
+                      style: underlineIf('about')
+                          .merge(const TextStyle(color: Colors.grey)),
+                    ),
+                  ),
+
+                  const Spacer(),
+
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 600),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.search,
+                            size: 18,
+                            color: Colors.grey,
+                          ),
+                          padding: const EdgeInsets.all(8),
+                          constraints: const BoxConstraints(
+                            minWidth: 32,
+                            minHeight: 32,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.person_outline,
+                            size: 18,
+                            color: Colors.grey,
+                          ),
+                          padding: const EdgeInsets.all(8),
+                          constraints: const BoxConstraints(
+                            minWidth: 32,
+                            minHeight: 32,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.shopping_bag_outlined,
+                            size: 18,
+                            color: Colors.grey,
+                          ),
+                          padding: const EdgeInsets.all(8),
+                          constraints: const BoxConstraints(
+                            minWidth: 32,
+                            minHeight: 32,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.menu,
+                            size: 18,
+                            color: Colors.grey,
+                          ),
+                          padding: const EdgeInsets.all(8),
+                          constraints: const BoxConstraints(
+                            minWidth: 32,
+                            minHeight: 32,
+                          ),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
