@@ -87,7 +87,3 @@ Optional improvements I can make
 Make the footer a responsive multi-column layout (Opening Hours + Help + Latest Offers) that collapses to a single column on narrow screens.
 Replace the ASCII separator with Divider() and better spacing.
 Extract the opening hours content into a data structure or localization file if you plan to update it often.
-Want me to:
-
-Convert the footer to a responsive 3-column layout ready for future content, or
-Leave it as-is and I’ll add it to any other specific pages you name?
