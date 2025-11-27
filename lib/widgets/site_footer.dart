@@ -77,7 +77,7 @@ class _SiteFooterState extends State<SiteFooter> {
             style: buttonStyle,
             onPressed: () => Navigator.pushNamed(context, '/search'),
             child: const Align(
-                alignment: Alignment.centerLeft, child: Text('search')),
+                alignment: Alignment.centerLeft, child: Text('Search')),
           ),
           const SizedBox(height: 8),
           TextButton(
@@ -99,47 +99,48 @@ class _SiteFooterState extends State<SiteFooter> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
+        // Input followed by a square submit button on the right
         Row(
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
-                foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            Expanded(
+              child: SizedBox(
+                height: 48.0,
+                child: TextField(
+                  controller: _emailController,
+                  decoration: const InputDecoration(
+                    hintText: 'Email Address',
+                    border: OutlineInputBorder(),
+                    isDense: true,
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  ),
+                  onChanged: (value) {
+                    setState(() {});
+                  },
+                ),
               ),
-              onPressed: () {
-                // Simulate subscribe by clearing the input
-                _emailController.clear();
-                setState(() {});
-              },
-              child: const Text('subscribe'),
             ),
             const SizedBox(width: 12),
-            Expanded(
-              child: TextField(
-                controller: _emailController,
-                decoration: const InputDecoration(
-                  hintText: 'Email Address',
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+            SizedBox(
+              height: 48.0,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4)),
                 ),
-                onChanged: (value) {
-                  // No storage; update UI if needed
+                onPressed: () {
+                  // Simulate subscribe by clearing the input
+                  _emailController.clear();
                   setState(() {});
                 },
+                child: const Text('Subscribe', style: TextStyle(fontSize: 14)),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 8),
-        if (_emailController.text.isNotEmpty)
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: Text('Entered: ${_emailController.text}',
-                style: const TextStyle(color: Colors.grey)),
-          ),
       ],
     );
 
