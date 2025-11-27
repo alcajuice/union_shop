@@ -35,7 +35,7 @@ class SiteHeader extends StatelessWidget {
     }
 
     final isNarrow = MediaQuery.of(context).size.width < 600;
-    final double headerHeight = isNarrow ? 150.0 : 100.0;
+    final double headerHeight = isNarrow ? 120.0 : 100.0;
 
     return Container(
       height: headerHeight,
@@ -63,13 +63,13 @@ class SiteHeader extends StatelessWidget {
                     onTap: navigateToHome,
                     child: Image.network(
                       'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                      height: isNarrow ? 36 : 18,
+                      height: isNarrow ? 20 : 16,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: Colors.grey[300],
-                          width: isNarrow ? 36 : 18,
-                          height: isNarrow ? 36 : 18,
+                          width: isNarrow ? 20 : 16,
+                          height: isNarrow ? 20 : 16,
                           child: const Center(
                             child: Icon(Icons.image_not_supported,
                                 color: Colors.grey),
@@ -79,7 +79,7 @@ class SiteHeader extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(width: 12),
+                  SizedBox(width: isNarrow ? 6 : 12),
 
                   // Center the Home/About buttons between logo and icons
                   // On narrow screens we hide textual buttons so only icons remain
@@ -124,52 +124,52 @@ class SiteHeader extends StatelessWidget {
                         IconButton(
                           icon: Icon(
                             Icons.search,
-                            size: isNarrow ? 24 : 18,
+                            size: isNarrow ? 20 : 18,
                             color: Colors.grey,
                           ),
-                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          padding: EdgeInsets.all(isNarrow ? 6 : 8),
                           constraints: BoxConstraints(
-                            minWidth: isNarrow ? 40 : 32,
-                            minHeight: isNarrow ? 40 : 32,
+                            minWidth: isNarrow ? 32 : 32,
+                            minHeight: isNarrow ? 32 : 32,
                           ),
                           onPressed: () {},
                         ),
                         IconButton(
                           icon: Icon(
                             Icons.person_outline,
-                            size: isNarrow ? 24 : 18,
+                            size: isNarrow ? 20 : 18,
                             color: Colors.grey,
                           ),
-                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          padding: EdgeInsets.all(isNarrow ? 6 : 8),
                           constraints: BoxConstraints(
-                            minWidth: isNarrow ? 40 : 32,
-                            minHeight: isNarrow ? 40 : 32,
+                            minWidth: isNarrow ? 32 : 32,
+                            minHeight: isNarrow ? 32 : 32,
                           ),
                           onPressed: () {},
                         ),
                         IconButton(
                           icon: Icon(
                             Icons.shopping_bag_outlined,
-                            size: isNarrow ? 24 : 18,
+                            size: isNarrow ? 20 : 18,
                             color: Colors.grey,
                           ),
-                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          padding: EdgeInsets.all(isNarrow ? 6 : 8),
                           constraints: BoxConstraints(
-                            minWidth: isNarrow ? 40 : 32,
-                            minHeight: isNarrow ? 40 : 32,
+                            minWidth: isNarrow ? 32 : 32,
+                            minHeight: isNarrow ? 32 : 32,
                           ),
                           onPressed: () {},
                         ),
                         IconButton(
                           icon: Icon(
                             Icons.menu,
-                            size: isNarrow ? 24 : 18,
+                            size: isNarrow ? 20 : 18,
                             color: Colors.grey,
                           ),
-                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          padding: EdgeInsets.all(isNarrow ? 6 : 8),
                           constraints: BoxConstraints(
-                            minWidth: isNarrow ? 40 : 32,
-                            minHeight: isNarrow ? 40 : 32,
+                            minWidth: isNarrow ? 32 : 32,
+                            minHeight: isNarrow ? 32 : 32,
                           ),
                           onPressed: () {},
                         ),
