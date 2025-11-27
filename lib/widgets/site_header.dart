@@ -78,31 +78,37 @@ class SiteHeader extends StatelessWidget {
 
                   const SizedBox(width: 12),
 
-                  // Home button
-                  TextButton(
-                    onPressed: navigateToHome,
-                    style: buttonStyle,
-                    child: Text(
-                      'home'.toUpperCase(),
-                      style: underlineIf('home')
-                          .merge(const TextStyle(color: Colors.grey)),
+                  // Center the Home/About buttons between logo and icons
+                  Expanded(
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          // Home button
+                          TextButton(
+                            onPressed: navigateToHome,
+                            style: buttonStyle,
+                            child: Text(
+                              'home'.toUpperCase(),
+                              style: underlineIf('home')
+                                  .merge(const TextStyle(color: Colors.grey)),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          // About button
+                          TextButton(
+                            onPressed: navigateToAbout,
+                            style: buttonStyle,
+                            child: Text(
+                              'about'.toUpperCase(),
+                              style: underlineIf('about')
+                                  .merge(const TextStyle(color: Colors.grey)),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-
-                  const SizedBox(width: 8),
-
-                  // About button
-                  TextButton(
-                    onPressed: navigateToAbout,
-                    style: buttonStyle,
-                    child: Text(
-                      'about'.toUpperCase(),
-                      style: underlineIf('about')
-                          .merge(const TextStyle(color: Colors.grey)),
-                    ),
-                  ),
-
-                  const Spacer(),
 
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 600),
