@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/site_header.dart';
+import 'package:union_shop/widgets/site_footer.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
@@ -115,20 +116,8 @@ class ProductPage extends StatelessWidget {
               ),
             ),
 
-            // Footer
-            Container(
-              width: double.infinity,
-              color: Colors.grey[50],
-              padding: const EdgeInsets.all(24),
-              child: const Text(
-                'Placeholder Footer',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+            const SizedBox(height: 24),
+            const SiteFooter(),
           ],
         ),
       ),

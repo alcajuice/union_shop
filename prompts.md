@@ -38,9 +38,10 @@ The active underline still works by passing active: 'home' or active: 'about' to
 
 **PROMPT 3**
 
-At the bottom left of the about us page, add some information. We need to include information such as Opening Hours. Text should include "Opening Hours
+At the bottom left of the about us page, add some information. We need to include information such as Opening Hours. Text should include 
+"Opening Hours
 
-"❄️ Winter Break Closure Dates ❄️
+❄️ Winter Break Closure Dates ❄️
 Closing 4pm 19/12/2025
 Reopening 10am 05/01/2026
 Last post date: 12pm on 18/12/2025
@@ -50,6 +51,8 @@ Monday - Friday 10am - 4pm
 (Outside of Term Time / Consolidation Weeks)
 Monday - Friday 10am - 3pm
 Purchase online 24/7"
+
+Response:
 
 I added an "Opening Hours" section at the bottom of the About page and kept only that column (omitting the other footer columns).
 
@@ -66,3 +69,25 @@ The section uses Colors.grey[100] background and padding to visually resemble a 
 Text styles are simple (bold for important lines, italic for contextual notes). I used a small dividing line string to match the screenshot; if you'd like a separator line widget, I can switch to Divider().
 
 **PROMPT 4**
+
+This footer should be visible on every page. Can you copy this footer onto the main store page as well, and whenever we add more pages, make sure to add the footer
+
+What I changed
+
+Added site_footer.dart — a new SiteFooter widget that contains the "Opening Hours" content.
+Replaced the inline Opening Hours container in about_page.dart with const SiteFooter().
+Replaced the placeholder footers in main.dart and product_page.dart with const SiteFooter().
+Imported site_footer.dart where needed.
+How it behaves
+
+The same Opening Hours footer now appears on Home, Product, and About pages.
+Future pages can reuse the footer by importing package:union_shop/widgets/site_footer.dart and adding const SiteFooter() at the bottom of their content.
+Optional improvements I can make
+
+Make the footer a responsive multi-column layout (Opening Hours + Help + Latest Offers) that collapses to a single column on narrow screens.
+Replace the ASCII separator with Divider() and better spacing.
+Extract the opening hours content into a data structure or localization file if you plan to update it often.
+Want me to:
+
+Convert the footer to a responsive 3-column layout ready for future content, or
+Leave it as-is and I’ll add it to any other specific pages you name?
