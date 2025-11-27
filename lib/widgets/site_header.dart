@@ -34,15 +34,18 @@ class SiteHeader extends StatelessWidget {
       return const TextStyle();
     }
 
+    final isNarrow = MediaQuery.of(context).size.width < 600;
+    final double headerHeight = isNarrow ? 150.0 : 100.0;
+
     return Container(
-      height: 100,
+      height: headerHeight,
       color: Colors.white,
       child: Column(
         children: [
           // Top banner remains part of the header for now; keep existing colour
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: EdgeInsets.symmetric(vertical: isNarrow ? 10 : 8),
             color: const Color(0xFF4d2963),
             child: const Text(
               'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
@@ -53,20 +56,20 @@ class SiteHeader extends StatelessWidget {
           // Main header row with logo, home/about buttons and icon buttons
           Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: isNarrow ? 14 : 10),
               child: Row(
                 children: [
                   GestureDetector(
                     onTap: navigateToHome,
                     child: Image.network(
                       'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                      height: 18,
+                      height: isNarrow ? 36 : 18,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: Colors.grey[300],
-                          width: 18,
-                          height: 18,
+                          width: isNarrow ? 36 : 18,
+                          height: isNarrow ? 36 : 18,
                           child: const Center(
                             child: Icon(Icons.image_not_supported,
                                 color: Colors.grey),
@@ -116,54 +119,54 @@ class SiteHeader extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.search,
-                            size: 18,
+                            size: isNarrow ? 24 : 18,
                             color: Colors.grey,
                           ),
-                          padding: const EdgeInsets.all(8),
-                          constraints: const BoxConstraints(
-                            minWidth: 32,
-                            minHeight: 32,
+                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          constraints: BoxConstraints(
+                            minWidth: isNarrow ? 40 : 32,
+                            minHeight: isNarrow ? 40 : 32,
                           ),
                           onPressed: () {},
                         ),
                         IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.person_outline,
-                            size: 18,
+                            size: isNarrow ? 24 : 18,
                             color: Colors.grey,
                           ),
-                          padding: const EdgeInsets.all(8),
-                          constraints: const BoxConstraints(
-                            minWidth: 32,
-                            minHeight: 32,
+                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          constraints: BoxConstraints(
+                            minWidth: isNarrow ? 40 : 32,
+                            minHeight: isNarrow ? 40 : 32,
                           ),
                           onPressed: () {},
                         ),
                         IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.shopping_bag_outlined,
-                            size: 18,
+                            size: isNarrow ? 24 : 18,
                             color: Colors.grey,
                           ),
-                          padding: const EdgeInsets.all(8),
-                          constraints: const BoxConstraints(
-                            minWidth: 32,
-                            minHeight: 32,
+                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          constraints: BoxConstraints(
+                            minWidth: isNarrow ? 40 : 32,
+                            minHeight: isNarrow ? 40 : 32,
                           ),
                           onPressed: () {},
                         ),
                         IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.menu,
-                            size: 18,
+                            size: isNarrow ? 24 : 18,
                             color: Colors.grey,
                           ),
-                          padding: const EdgeInsets.all(8),
-                          constraints: const BoxConstraints(
-                            minWidth: 32,
-                            minHeight: 32,
+                          padding: EdgeInsets.all(isNarrow ? 10 : 8),
+                          constraints: BoxConstraints(
+                            minWidth: isNarrow ? 40 : 32,
+                            minHeight: isNarrow ? 40 : 32,
                           ),
                           onPressed: () {},
                         ),
