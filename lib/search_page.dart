@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/site_header.dart';
-import 'package:union_shop/widgets/site_footer_fixed.dart';
+import 'package:union_shop/widgets/site_footer.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
