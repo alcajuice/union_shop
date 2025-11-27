@@ -13,34 +13,36 @@ class AboutPage extends StatelessWidget {
             // Use the shared header and mark 'about' active so it underlines
             const SiteHeader(active: 'about'),
 
-            // Simple placeholder content
+            // Simple placeholder content at the top center under the header
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 24),
 
-                  // Centered bold About heading
-                  const Center(
-                    child: Text(
-                      'About us',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
+                  // Top-centered bold About heading
+                  const Text(
+                    'About us',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
 
                   const Text(
-                    '''Welcome to the Union Shop!\n\n
-We’re dedicated to giving you the very best University branded products, with a 
-range of clothing and merchandise available to shop all year round! We even offer 
-an exclusive personalisation service!\n\n
-All online purchases are available for delivery or instore collection!\n\n
-We hope you enjoy our products as much as we enjoy offering them to you. If you 
-have any questions or comments, please don’t hesitate to contact us at hello@upsu.net.\n\n
-Happy shopping!\n\n
+                    '''Welcome to the Union Shop!
+
+We’re dedicated to giving you the very best University branded products, with a
+range of clothing and merchandise available to shop all year round! We even offer
+an exclusive personalisation service!
+
+All online purchases are available for delivery or instore collection!
+
+We hope you enjoy our products as much as we enjoy offering them to you. If you
+have any questions or comments, please don’t hesitate to contact us at hello@upsu.net.
+
+Happy shopping!
+
 The Union Shop & Reception Team​​​​​​​​​''',
                   ),
                 ],
