@@ -184,3 +184,21 @@ Summary
 File changed: site_header.dart
 Behavior: If the screen width is less than 600 px (isNarrow), the center area that previously showed textual buttons now renders as SizedBox.shrink(). On larger screens the buttons remain visible and behave the same.
 Analyzer: No static errors reported after the change.
+
+**PROMPT 9**
+
+For the button with the menu icon, turn it into a dropdown menu. If the text buttons (home, about, and any buttons we add in the future) cannot be displayed due to size constraints, display them in the dropdown menu instead. If the screen is big enough to hold all the text buttons, make the menu button disappear as it will not be needed as users can simply press the text buttons instead.
+
+Done — I implemented the responsive dropdown menu for the header.
+
+Summary of changes
+
+File: site_header.dart
+Added a single centerButtons list (currently Home and About) so the header's central actions are defined in one place.
+On wide screens: the central text buttons render as before.
+On narrow screens: the central text buttons are hidden and the menu icon becomes a PopupMenuButton that lists those actions.
+When the screen is wide enough to display the text buttons, the menu button disappears.
+Why this approach
+
+Centralizing the button list makes it easy to add future center buttons — they will automatically appear in the popup on narrow screens and as text on wide screens.
+Using PopupMenuButton keeps the behavior native and accessible.

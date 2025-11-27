@@ -34,6 +34,12 @@ class SiteHeader extends StatelessWidget {
       return const TextStyle();
     }
 
+    // Central text buttons (kept here so future additions can be reused)
+    final List<Map<String, String>> centerButtons = [
+      {'key': 'home', 'label': 'Home'},
+      {'key': 'about', 'label': 'About'},
+    ];
+
     final isNarrow = MediaQuery.of(context).size.width < 600;
     final double headerHeight = isNarrow ? 120.0 : 100.0;
 
@@ -90,27 +96,22 @@ class SiteHeader extends StatelessWidget {
                           : Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                // Home button
-                                TextButton(
-                                  onPressed: navigateToHome,
-                                  style: buttonStyle,
-                                  child: Text(
-                                    'home'.toUpperCase(),
-                                    style: underlineIf('home').merge(
-                                        const TextStyle(color: Colors.grey)),
+                                for (var b in centerButtons) ...[
+                                  TextButton(
+                                    onPressed: () {
+                                      if (b['key'] == 'home') navigateToHome();
+                                      if (b['key'] == 'about')
+                                        navigateToAbout();
+                                    },
+                                    style: buttonStyle,
+                                    child: Text(
+                                      b['label']!.toUpperCase(),
+                                      style: underlineIf(b['key']!).merge(
+                                          const TextStyle(color: Colors.grey)),
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 8),
-                                // About button
-                                TextButton(
-                                  onPressed: navigateToAbout,
-                                  style: buttonStyle,
-                                  child: Text(
-                                    'about'.toUpperCase(),
-                                    style: underlineIf('about').merge(
-                                        const TextStyle(color: Colors.grey)),
-                                  ),
-                                ),
+                                  const SizedBox(width: 8),
+                                ],
                               ],
                             ),
                     ),
@@ -160,19 +161,30 @@ class SiteHeader extends StatelessWidget {
                           ),
                           onPressed: () {},
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.menu,
-                            size: isNarrow ? 20 : 18,
-                            color: Colors.grey,
-                          ),
-                          padding: EdgeInsets.all(isNarrow ? 6 : 8),
-                          constraints: BoxConstraints(
-                            minWidth: isNarrow ? 32 : 32,
-                            minHeight: isNarrow ? 32 : 32,
-                          ),
-                          onPressed: () {},
-                        ),
+                        // Dropdown menu: only shown on narrow screens. When the
+                        // center text buttons are visible (wide screens) the
+                        // menu button is hidden.
+                        isNarrow
+                            ? PopupMenuButton<String>(
+                                icon: Icon(
+                                  Icons.menu,
+                                  size: 20,
+                                  color: Colors.grey,
+                                ),
+                                onSelected: (value) {
+                                  if (value == 'home') navigateToHome();
+                                  if (value == 'about') navigateToAbout();
+                                },
+                                itemBuilder: (context) {
+                                  return centerButtons.map((b) {
+                                    return PopupMenuItem<String>(
+                                      value: b['key'],
+                                      child: Text(b['label']!),
+                                    );
+                                  }).toList();
+                                },
+                              )
+                            : const SizedBox.shrink(),
                       ],
                     ),
                   ),
