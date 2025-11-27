@@ -98,3 +98,8 @@ I'll update the footer to a responsive 3-column layout, add a placeholder Search
 Now I'll replace site_footer.dart with a responsive 3-column footer implementation.
 I'm going to remove the duplicated import and old footer implementation from site_footer.dart to fix the analyzer errors. Then I'll re-run the analyzer to confirm the fix.
 Done — I removed the duplicate import and old footer implementation in site_footer.dart and kept the responsive footer. Analyzer reports no errors for that file now.
+
+**PROMPT 6**
+
+Under the "Latest Offers" section, add a text input box where users can enter their email. The box should have the word "Email Address" inside it, and should disappear when the user starts typing. to the left of the input box, there should be a purple button with the word "subscribe", that will clear the text box - we are only simulating the user inputting their email, but we are not storing it anywhere
+
