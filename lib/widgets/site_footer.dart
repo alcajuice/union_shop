@@ -8,7 +8,7 @@ class SiteFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     // Button style similar to header text buttons
     final buttonStyle = TextButton.styleFrom(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       foregroundColor: Colors.grey[800],
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       textStyle: const TextStyle(fontSize: 14),
