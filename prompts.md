@@ -153,3 +153,34 @@ Next steps (optional)
 Remove the placeholder site_footer_fixed.dart file entirely if you don't need it (I left it as a deprecated placeholder to be safe).
 Run the app (flutter run) and test the footer UI and the /search navigation.
 Run flutter test to confirm widget tests (note: some tests may need network-image stubs).
+
+**PROMPT 8**
+
+Increase the height of the header containing the home, about and other icons so that it is more easily visible in mobile view
+
+I'll open site_header.dart to find the header layout and adjust its height for mobile visibility.
+Update complete — header height increased for mobile and UI elements enlarged.
+
+What I changed
+
+File: site_header.dart
+Made header responsive by detecting narrow screens (MediaQuery.of(context).size.width < 600).
+Increased overall header height on narrow screens from 100 → 150 px.
+Enlarged the logo from 18 → 36 px on narrow screens.
+Increased icon sizes and touch targets (icon size 18 → 24, minWidth/minHeight 32 → 40) and padding for narrow screens.
+Increased horizontal padding slightly for narrow layouts so elements have breathing room.
+Why
+
+These changes make the header (logo, HOME/ABOUT, and icons) taller and more tappable on mobile devices, improving visibility and usability.
+
+**PROMPT 8**
+
+If the screen is too small, remove the home and about buttons so that only the icons remain. Do this going forward for all buttons added to the header
+
+Done — the header now hides Home/About (and any center text buttons) on small screens so only the icons remain.
+
+Summary
+
+File changed: site_header.dart
+Behavior: If the screen width is less than 600 px (isNarrow), the center area that previously showed textual buttons now renders as SizedBox.shrink(). On larger screens the buttons remain visible and behave the same.
+Analyzer: No static errors reported after the change.
