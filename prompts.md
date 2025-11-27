@@ -4,3 +4,17 @@ In the same row as the logo (https://shop.upsu.net/cdn/shop/files/upsu_300x300.p
 
 Response:
 
+What I changed
+
+Added site_header.dart — a reusable SiteHeader widget that:
+Shows the logo, HOME and ABOUT buttons (white background, grey text).
+Underlines the active item when you pass active: 'home' or active: 'about'.
+Shows the same icon buttons on the right as before.
+Added about_page.dart — a minimal About placeholder and route.
+Updated main.dart:
+Imports SiteHeader and AboutPage.
+Registers the /about route.
+Replaced the duplicated header with SiteHeader(active: 'home') on the Home screen so HOME is underlined there.
+Updated product_page.dart:
+Uses SiteHeader() (no active underline on product page).
+

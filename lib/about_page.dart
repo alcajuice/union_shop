@@ -21,11 +21,12 @@ class AboutPage extends StatelessWidget {
                 children: const [
                   SizedBox(height: 24),
                   Text(
-                    'About (placeholder)',
+                    'About us',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 12),
-                  Text('This page is a placeholder for the About content.'),
+                  Text(
+                      'Welcome to the Union Shop! \nWe’re dedicated to giving you the very best University branded products, with a range of clothing and merchandise available to shop all year round! We even offer an exclusive personalisation service! \nAll online purchases are available for delivery or instore collection! \nWe hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don’t hesitate to contact us at hello@upsu.net. \nHappy shopping! \nThe Union Shop & Reception Team​​​​​​​​​'),
                 ],
               ),
             ),
