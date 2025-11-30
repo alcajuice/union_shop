@@ -212,3 +212,30 @@ b) occupies the whole width of the screen when viewed in mobile view.
 
 When the user has inputted their search query, send them to the search_page
 
+Done — I implemented the responsive search input in the header.
+
+Summary of changes
+
+File: site_header.dart
+Converted SiteHeader from StatelessWidget to StatefulWidget to manage search input visibility state.
+Added _searchVisible boolean and _searchController to control the search input.
+When the search icon is clicked, it toggles the search input visibility.
+On wide screens: the search input appears in the center area (to the left of the icons) with horizontal padding, occupying a moderate width.
+On narrow screens: the search input expands to fill the entire center Expanded area (full width between logo and icons).
+The input has autofocus, a close button (X icon) to cancel, and submits to /search when the user presses Enter.
+Fixed the active reference to use widget.active in the state class.
+Validation
+
+Ran analyzer — no errors reported.
+Behavior
+
+Click the magnifying glass → search input appears
+Type query and press Enter → navigates to /search page
+Click the X icon or press close → hides the input and clears it
+Responsive: narrow screens get full-width input, wide screens get a compact input to the left of icons
+
+**PROMPT 11**
+
+
+In the search page, the middle of the page should have a search bar where the user can input a query. To the right of the serach bar should be a submit button
+
