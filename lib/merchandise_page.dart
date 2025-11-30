@@ -42,7 +42,7 @@ class _MerchandisePageState extends State<MerchandisePage> {
           'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
     },
     {
-      'title': 'Portsmouth Mug',
+      'title': 'Portsmouth ID holder 1',
       'price': '£8.99',
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799',
@@ -54,7 +54,7 @@ class _MerchandisePageState extends State<MerchandisePage> {
           'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
     },
     {
-      'title': 'Portsmouth Mug',
+      'title': 'Portsmouth ID holder 2',
       'price': '£8.99',
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799',
@@ -66,7 +66,7 @@ class _MerchandisePageState extends State<MerchandisePage> {
           'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
     },
     {
-      'title': 'Portsmouth Mug',
+      'title': 'Portsmouth ID holder 3',
       'price': '£8.99',
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799',
