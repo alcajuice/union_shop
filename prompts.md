@@ -480,7 +480,20 @@ The cart currently shows as empty (with the continue shopping button). In a real
 
 **PROMPT 20**
 
+Create a page similar to the clothing page called merchandise page. The title should say Merchandise, and the FIlter By section should have the filters
+All Products
+Julia Gash
+Merchandise
+Portsmouth City Collection
+PSUT
+University Merch
 
+The sort by dropdown menu should have the same options as the clothing page.
+
+Populate the merchandise page using the images from main (postcard) and this one below:
+https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799
+
+Clicking on the products should send the user to the product page
 
 
 
