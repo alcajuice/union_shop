@@ -37,6 +37,14 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     final isNarrow = MediaQuery.of(context).size.width < 900;
 
+    // Extract product data from route arguments
+    final args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final productTitle = args?['title'] ?? 'Classic Purple Hoodie';
+    final productPrice = args?['price'] ?? '£25.00';
+    final productImage = args?['imageUrl'] ??
+        'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957';
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -48,9 +56,9 @@ class _ProductPageState extends State<ProductPage> {
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildProductImage(),
+                        _buildProductImage(productImage),
                         const SizedBox(height: 32),
-                        _buildProductDetails(),
+                        _buildProductDetails(productTitle, productPrice),
                       ],
                     )
                   : Row(
@@ -58,12 +66,13 @@ class _ProductPageState extends State<ProductPage> {
                       children: [
                         Expanded(
                           flex: 1,
-                          child: _buildProductImage(),
+                          child: _buildProductImage(productImage),
                         ),
                         const SizedBox(width: 48),
                         Expanded(
                           flex: 1,
-                          child: _buildProductDetails(),
+                          child:
+                              _buildProductDetails(productTitle, productPrice),
                         ),
                       ],
                     ),
@@ -76,7 +85,7 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-  Widget _buildProductImage() {
+  Widget _buildProductImage(String imageUrl) {
     return Container(
       constraints: const BoxConstraints(maxHeight: 600),
       decoration: BoxDecoration(
@@ -86,7 +95,7 @@ class _ProductPageState extends State<ProductPage> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Image.network(
-          'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+          imageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
           errorBuilder: (context, error, stackTrace) {
@@ -117,14 +126,14 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-  Widget _buildProductDetails() {
+  Widget _buildProductDetails(String title, String price) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Product title
-        const Text(
-          'Classic Purple Hoodie',
-          style: TextStyle(
+        Text(
+          title,
+          style: const TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
             color: Colors.black,
@@ -133,9 +142,9 @@ class _ProductPageState extends State<ProductPage> {
         const SizedBox(height: 16),
 
         // Price
-        const Text(
-          '£25.00',
-          style: TextStyle(
+        Text(
+          price,
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w600,
             color: Colors.black87,
@@ -283,7 +292,7 @@ class _ProductPageState extends State<ProductPage> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    'Added $_quantity x Classic Purple Hoodie ($_selectedColor, $_selectedSize) to cart',
+                    'Added $_quantity x $title ($_selectedColor, $_selectedSize) to cart',
                   ),
                   duration: const Duration(seconds: 2),
                 ),

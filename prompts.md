@@ -418,3 +418,26 @@ Quantity can be typed in directly
 Add to Cart button shows a confirmation message with the selected options
 Responsive design adapts to screen size
 The page uses the purple hoodie image and maintains your brand's color scheme (purple #4d2963).
+
+**PROMPT 18**
+
+
+The product page should be dynamic. This means that each product page should carry the title and price of the product that the user clicked on. For example, if the user clicks on the image with the title 'Purple Hoodie 6' it should show a page wihthe title Purple Hoodie 6 and a price of 50, instead of purple hoode 1 with a price of 25. You should also do this for the placeholder products found under the hero page in the main screen.
+
+Perfect! I've made the product page fully dynamic. Now:
+
+Product Page Changes:
+
+Accepts title, price, and imageUrl as route arguments
+Displays the clicked product's actual title, price, and image
+Falls back to default values if no arguments are passed
+Clothing Page:
+
+Each "Purple Hoodie" product passes its specific title and price when clicked
+"Purple Hoodie 1" shows £25.00, "Purple Hoodie 2" shows £30.00, etc.
+Main Page (Home):
+
+Each placeholder product card passes its specific title, price, and image URL when clicked
+Now when users click on any product card (whether from the clothing page or home page), the product page will display that specific product's information dynamically!
+
+

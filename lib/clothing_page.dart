@@ -209,7 +209,16 @@ class _ClothingPageState extends State<ClothingPage> {
   Widget _buildProductCard(String title, String price) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product');
+        Navigator.pushNamed(
+          context,
+          '/product',
+          arguments: {
+            'title': title,
+            'price': price,
+            'imageUrl':
+                'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+          },
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

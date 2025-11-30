@@ -144,7 +144,15 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product');
+        Navigator.pushNamed(
+          context,
+          '/product',
+          arguments: {
+            'title': title,
+            'price': price,
+            'imageUrl': imageUrl,
+          },
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
