@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
+import 'package:union_shop/services/cart_service.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -294,13 +295,39 @@ class _ProductPageState extends State<ProductPage> {
           height: 50,
           child: ElevatedButton(
             onPressed: () {
-              // Add to cart functionality
+              final cartService = CartService();
+
+              // Get current route args for image URL
+              final args = ModalRoute.of(context)?.settings.arguments
+                  as Map<String, dynamic>?;
+              final imageUrl = args?['imageUrl'] ??
+                  'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957';
+              final isClothing = args?['isClothing'] ?? true;
+
+              cartService.addToCart(
+                title: title,
+                price: price,
+                imageUrl: imageUrl,
+                quantity: _quantity,
+                color: isClothing ? _selectedColor : null,
+                size: isClothing ? _selectedSize : null,
+              );
+
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    'Added $_quantity x $title ($_selectedColor, $_selectedSize) to cart',
+                    isClothing
+                        ? 'Added $_quantity x $title ($_selectedColor, $_selectedSize) to cart'
+                        : 'Added $_quantity x $title to cart',
                   ),
                   duration: const Duration(seconds: 2),
+                  action: SnackBarAction(
+                    label: 'VIEW CART',
+                    textColor: Colors.white,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/cart');
+                    },
+                  ),
                 ),
               );
             },

@@ -444,6 +444,44 @@ Now when users click on any product card (whether from the clothing page or home
 
 Next, create a cart screen. This will be acessible by pressing the bag icon in the header. The middle of the screen should show a title 'Your cart', text saying ;'Your Cart is currently Empty' if the cart is empty. Add a continue shopping button if the cart is empty, which brings you to the main menu., If there are products in the cart, display the product image (scaled down), Color+Size (If applicable), price, quantity and total. Beneath this, add an option to add a note to your order, as well as a subtotal which calculates the price of all items together
 
+Perfect! I've successfully created the cart page with all the requested features:
+
+Cart Page Features:
+
+Empty State:
+
+Shows "Your cart" title
+Displays "Your cart is currently empty." message
+"CONTINUE SHOPPING" button that navigates to the home page
+Cart with Items:
+
+Desktop view: Table layout with columns for Product (image + details), Price, Quantity, and Total
+Mobile view: Stacked layout showing each product with its details
+Product cards show:
+Scaled-down product image
+Product title
+Color and Size (only if applicable - conditional rendering)
+Individual price
+Quantity
+Total price per item
+Remove button
+Order Note Section:
+
+Text area where users can add a note to their order
+Subtotal Section:
+
+Calculates and displays the sum of all items in the cart
+Shows "Tax included and shipping calculated at checkout" text
+Navigation:
+
+Added /cart route in main.dart
+Updated the shopping bag icon in the header to navigate to the cart page
+The cart currently shows as empty (with the continue shopping button). In a real application, this would be integrated with a state management solution to persist cart items across the app.
+
+**PROMPT 20**
+
+
+
 
 
 

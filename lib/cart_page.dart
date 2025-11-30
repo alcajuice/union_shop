@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
+import 'package:union_shop/services/cart_service.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -11,31 +12,27 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   final TextEditingController _noteController = TextEditingController();
+  final CartService _cartService = CartService();
 
-  // Temporary cart items - in a real app, this would be managed by a state management solution
-  final List<Map<String, dynamic>> _cartItems = [];
+  @override
+  void initState() {
+    super.initState();
+    _cartService.addListener(_onCartChanged);
+  }
 
   @override
   void dispose() {
+    _cartService.removeListener(_onCartChanged);
     _noteController.dispose();
     super.dispose();
   }
 
-  double _calculateSubtotal() {
-    double subtotal = 0;
-    for (var item in _cartItems) {
-      final priceString = item['price'].toString().replaceAll('£', '');
-      final price = double.tryParse(priceString) ?? 0;
-      final quantity = item['quantity'] ?? 1;
-      subtotal += price * quantity;
-    }
-    return subtotal;
+  void _onCartChanged() {
+    setState(() {});
   }
 
   void _removeItem(int index) {
-    setState(() {
-      _cartItems.removeAt(index);
-    });
+    _cartService.removeItem(index);
   }
 
   Widget _buildCartItem(Map<String, dynamic> item, int index, bool isNarrow) {
@@ -288,7 +285,7 @@ class _CartPageState extends State<CartPage> {
                   const SizedBox(height: 32),
 
                   // Empty cart message
-                  if (_cartItems.isEmpty) ...[
+                  if (_cartService.cartItems.isEmpty) ...[
                     Center(
                       child: Column(
                         children: [
@@ -399,11 +396,11 @@ class _CartPageState extends State<CartPage> {
                     ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _cartItems.length,
+                      itemCount: _cartService.cartItems.length,
                       separatorBuilder: (context, index) => const Divider(),
                       itemBuilder: (context, index) {
                         return _buildCartItem(
-                            _cartItems[index], index, isNarrow);
+                            _cartService.cartItems[index], index, isNarrow);
                       },
                     ),
 
@@ -455,7 +452,7 @@ class _CartPageState extends State<CartPage> {
                                 ),
                                 const SizedBox(width: 24),
                                 Text(
-                                  '£${_calculateSubtotal().toStringAsFixed(2)}',
+                                  '£${_cartService.calculateSubtotal().toStringAsFixed(2)}',
                                   style: const TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w600,
