@@ -128,7 +128,11 @@ class _SiteHeaderState extends State<SiteHeader> {
                               ),
                               onSubmitted: (query) {
                                 if (query.isNotEmpty) {
-                                  Navigator.pushNamed(context, '/search');
+                                  Navigator.pushNamed(
+                                    context,
+                                    '/search',
+                                    arguments: {'query': query},
+                                  );
                                 }
                               },
                             ),

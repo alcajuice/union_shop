@@ -239,3 +239,10 @@ Responsive: narrow screens get full-width input, wide screens get a compact inpu
 
 In the search page, the middle of the page should have a search bar where the user can input a query. To the right of the serach bar should be a submit button
 
+Implemented a centered search bar with submit button on the search page. The layout includes:
+
+"SEARCH OUR SITE" heading styled with bold text and letter spacing
+Search input field in a row with the submit button directly to the right
+Purple submit button matching your brand color
+Maximum width constraint (800px) to keep the search bar centered on wide screens
+Button has matching height (56px) with the input field
