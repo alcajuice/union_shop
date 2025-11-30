@@ -48,9 +48,21 @@ class _SiteHeaderState extends State<SiteHeader> {
       return const TextStyle();
     }
 
+    // Shop dropdown menu items
+    final List<Map<String, String>> shopMenuItems = [
+      {'key': 'clothing', 'label': 'Clothing'},
+      {'key': 'merchandise', 'label': 'Merchandise'},
+      {'key': 'halloween', 'label': 'Halloween'},
+      {'key': 'signature-essential', 'label': 'Signature & Essential Range'},
+      {'key': 'portsmouth', 'label': 'Portsmouth City Collection'},
+      {'key': 'pride', 'label': 'Pride Collection'},
+      {'key': 'graduation', 'label': 'Graduation'},
+    ];
+
     // Central text buttons (kept here so future additions can be reused)
     final List<Map<String, String>> centerButtons = [
       {'key': 'home', 'label': 'Home'},
+      {'key': 'shop', 'label': 'Shop'},
       {'key': 'about', 'label': 'About'},
     ];
 
@@ -144,21 +156,62 @@ class _SiteHeaderState extends State<SiteHeader> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       for (var b in centerButtons) ...[
-                                        TextButton(
-                                          onPressed: () {
-                                            if (b['key'] == 'home')
-                                              navigateToHome();
-                                            if (b['key'] == 'about')
-                                              navigateToAbout();
-                                          },
-                                          style: buttonStyle,
-                                          child: Text(
-                                            b['label']!.toUpperCase(),
-                                            style: underlineIf(b['key']!).merge(
-                                                const TextStyle(
-                                                    color: Colors.grey)),
+                                        if (b['key'] == 'shop')
+                                          PopupMenuButton<String>(
+                                            offset: const Offset(0, 40),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 12,
+                                                      vertical: 8),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    b['label']!.toUpperCase(),
+                                                    style: const TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 4),
+                                                  const Icon(
+                                                    Icons.arrow_drop_down,
+                                                    size: 18,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            onSelected: (value) {
+                                              // Handle shop submenu navigation
+                                              // Placeholder for now
+                                            },
+                                            itemBuilder: (context) {
+                                              return shopMenuItems.map((item) {
+                                                return PopupMenuItem<String>(
+                                                  value: item['key'],
+                                                  child: Text(item['label']!),
+                                                );
+                                              }).toList();
+                                            },
+                                          )
+                                        else
+                                          TextButton(
+                                            onPressed: () {
+                                              if (b['key'] == 'home')
+                                                navigateToHome();
+                                              if (b['key'] == 'about')
+                                                navigateToAbout();
+                                            },
+                                            style: buttonStyle,
+                                            child: Text(
+                                              b['label']!.toUpperCase(),
+                                              style: underlineIf(b['key']!)
+                                                  .merge(const TextStyle(
+                                                      color: Colors.grey)),
+                                            ),
                                           ),
-                                        ),
                                         const SizedBox(width: 8),
                                       ],
                                     ],
@@ -227,14 +280,48 @@ class _SiteHeaderState extends State<SiteHeader> {
                                 onSelected: (value) {
                                   if (value == 'home') navigateToHome();
                                   if (value == 'about') navigateToAbout();
+                                  // Handle shop submenu items
                                 },
                                 itemBuilder: (context) {
-                                  return centerButtons.map((b) {
-                                    return PopupMenuItem<String>(
-                                      value: b['key'],
-                                      child: Text(b['label']!),
-                                    );
-                                  }).toList();
+                                  final items = <PopupMenuEntry<String>>[];
+                                  for (var b in centerButtons) {
+                                    if (b['key'] == 'shop') {
+                                      // Add Shop as header
+                                      items.add(
+                                        PopupMenuItem<String>(
+                                          enabled: false,
+                                          child: Text(
+                                            b['label']!,
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black87,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                      // Add shop submenu items indented
+                                      for (var item in shopMenuItems) {
+                                        items.add(
+                                          PopupMenuItem<String>(
+                                            value: item['key'],
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 16),
+                                              child: Text(item['label']!),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    } else {
+                                      items.add(
+                                        PopupMenuItem<String>(
+                                          value: b['key'],
+                                          child: Text(b['label']!),
+                                        ),
+                                      );
+                                    }
+                                  }
+                                  return items;
                                 },
                               )
                             : const SizedBox.shrink(),
