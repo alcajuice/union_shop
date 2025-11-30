@@ -85,18 +85,23 @@ class _ClothingPageState extends State<ClothingPage> {
 
                   const SizedBox(height: 40),
 
-                  // Placeholder for products
-                  const Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(40.0),
-                      child: Text(
-                        'Products will be displayed here',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
-                      ),
+                  // Products Grid
+                  GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: isNarrow ? 2 : 3,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 24,
+                      childAspectRatio: 0.85,
                     ),
+                    itemCount: 6,
+                    itemBuilder: (context, index) {
+                      return _buildProductCard(
+                        'Purple Hoodie ${index + 1}',
+                        '£${(25 + index * 5).toStringAsFixed(2)}',
+                      );
+                    },
                   ),
                 ],
               ),
@@ -198,6 +203,58 @@ class _ClothingPageState extends State<ClothingPage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildProductCard(String title, String price) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/product');
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+              ),
+              child: Image.network(
+                'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    color: Colors.grey[300],
+                    child: const Center(
+                      child: Icon(Icons.image_not_supported,
+                          color: Colors.grey, size: 40),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            price,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey[600],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

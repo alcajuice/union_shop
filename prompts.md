@@ -329,3 +329,45 @@ All 7 shop categories (indented under Shop)
 About
 The dropdown is styled consistently with your existing header design using the purple accent color scheme.
 
+Perfect! I've created the Clothing page with all the requested features:
+
+Created:
+
+New clothing_page.dart file with a StatefulWidget to manage filter and sort selections
+Page Features:
+
+"Clothing" title centered at the top
+
+Filter By dropdown on the left with options:
+
+All products
+Clothing
+Merchandise
+Popular
+PSUT
+Sort By dropdown on the right with options:
+
+Featured
+Best Selling
+Alphabetically, A-Z
+Alphabetically, Z-A
+Price, Low to High
+Price, High to Low
+Date, Old to New
+Date, New to Old
+Navigation:
+
+Added route registration in main.dart
+Updated the header to navigate to the Clothing page when clicking "Clothing" in the Shop dropdown menu (works on both desktop and mobile views)
+Responsive Design:
+
+On wide screens: Filter and Sort dropdowns appear side-by-side
+On narrow screens: Dropdowns stack vertically
+The page includes the standard site header and footer, matching your existing design patterns.
+
+**PROMPT 16**
+
+Create some dummy products using this image:
+https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal.jpg?v=1742201957
+
+On desktop, there should be 3 products per row,and 2 rows in total. In mobile, there should be 2 products per row. Under each product image, add a placeholder title and price subtext.
