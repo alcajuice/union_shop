@@ -18,29 +18,31 @@ class _HeroCarouselState extends State<HeroCarousel> {
     {
       'image':
           'https://shop.upsu.net/cdn/shop/files/Signature_T-Shirt_Indigo_Blue_2.jpg?v=1758290534',
-      'title': 'Signature Collection',
-      'subtitle': 'Discover our premium t-shirt range',
-      'buttonText': 'SHOP NOW',
+      'title': 'Essential Range - Over 20% OFF!',
+      'subtitle':
+          'Over 20% off our Essential Range. Come and grab yours while stock lasts!',
+      'buttonText': 'BROWSE COLLECTION',
     },
     {
       'image': 'https://shop.upsu.net/cdn/shop/files/Hoodie.jpg?v=1632306034',
-      'title': 'Cozy Comfort',
-      'subtitle': 'Stay warm with our hoodie collection',
-      'buttonText': 'EXPLORE',
+      'title': 'The Print Shack',
+      'subtitle':
+          'Let\'s create something uniquely you with our personilsation service - From £3 for one line of text!',
+      'buttonText': 'FIND OUT MORE',
     },
     {
       'image':
           'https://shop.upsu.net/cdn/shop/files/Dominos_-_Shopify_Banner.jpg?v=1638793465',
-      'title': 'Special Offers',
-      'subtitle': 'Check out our latest deals',
-      'buttonText': 'VIEW DEALS',
+      'title': 'Hungry?',
+      'subtitle': 'We got this',
+      'buttonText': 'ORDER DOMINO\'S PIZZA NOW',
     },
     {
       'image':
           'https://shop.upsu.net/cdn/shop/files/PortsmouthCarousel_1853x473_DesignA_01.jpg?v=1639407310',
-      'title': 'Portsmouth Pride',
-      'subtitle': 'Show your city spirit',
-      'buttonText': 'DISCOVER',
+      'title': 'What\'s your next move...',
+      'subtitle': 'Are you with us?',
+      'buttonText': 'FIND YOUR STUDENT ACCOMMODATION',
     },
   ];
 
