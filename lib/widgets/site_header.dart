@@ -5,10 +5,24 @@ import 'package:flutter/material.dart';
 /// - Shows the logo on the left.
 /// - Shows `Home` and `About` buttons next to the logo.
 /// - The active item can be underlined by passing `active` = 'home'|'about'.
-class SiteHeader extends StatelessWidget {
+class SiteHeader extends StatefulWidget {
   final String? active; // 'home' | 'about' | null
 
   const SiteHeader({super.key, this.active});
+
+  @override
+  State<SiteHeader> createState() => _SiteHeaderState();
+}
+
+class _SiteHeaderState extends State<SiteHeader> {
+  bool _searchVisible = false;
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +42,7 @@ class SiteHeader extends StatelessWidget {
     );
 
     TextStyle underlineIf(String key) {
-      if (active == key) {
+      if (widget.active == key) {
         return const TextStyle(decoration: TextDecoration.underline);
       }
       return const TextStyle();
@@ -87,34 +101,65 @@ class SiteHeader extends StatelessWidget {
 
                   SizedBox(width: isNarrow ? 6 : 12),
 
-                  // Center the Home/About buttons between logo and icons
-                  // On narrow screens we hide textual buttons so only icons remain
+                  // Center area: show search input when active, otherwise show text buttons
                   Expanded(
-                    child: Center(
-                      child: isNarrow
-                          ? const SizedBox.shrink()
-                          : Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                for (var b in centerButtons) ...[
-                                  TextButton(
-                                    onPressed: () {
-                                      if (b['key'] == 'home') navigateToHome();
-                                      if (b['key'] == 'about')
-                                        navigateToAbout();
-                                    },
-                                    style: buttonStyle,
-                                    child: Text(
-                                      b['label']!.toUpperCase(),
-                                      style: underlineIf(b['key']!).merge(
-                                          const TextStyle(color: Colors.grey)),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                ],
-                              ],
+                    child: _searchVisible
+                        ? Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: isNarrow ? 0 : 16),
+                            child: TextField(
+                              controller: _searchController,
+                              autofocus: true,
+                              decoration: InputDecoration(
+                                hintText: 'Search...',
+                                border: OutlineInputBorder(),
+                                isDense: true,
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 12, vertical: 10),
+                                suffixIcon: IconButton(
+                                  icon: Icon(Icons.close, size: 18),
+                                  onPressed: () {
+                                    setState(() {
+                                      _searchVisible = false;
+                                      _searchController.clear();
+                                    });
+                                  },
+                                ),
+                              ),
+                              onSubmitted: (query) {
+                                if (query.isNotEmpty) {
+                                  Navigator.pushNamed(context, '/search');
+                                }
+                              },
                             ),
-                    ),
+                          )
+                        : Center(
+                            child: isNarrow
+                                ? const SizedBox.shrink()
+                                : Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      for (var b in centerButtons) ...[
+                                        TextButton(
+                                          onPressed: () {
+                                            if (b['key'] == 'home')
+                                              navigateToHome();
+                                            if (b['key'] == 'about')
+                                              navigateToAbout();
+                                          },
+                                          style: buttonStyle,
+                                          child: Text(
+                                            b['label']!.toUpperCase(),
+                                            style: underlineIf(b['key']!).merge(
+                                                const TextStyle(
+                                                    color: Colors.grey)),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                      ],
+                                    ],
+                                  ),
+                          ),
                   ),
 
                   ConstrainedBox(
@@ -133,7 +178,11 @@ class SiteHeader extends StatelessWidget {
                             minWidth: isNarrow ? 32 : 32,
                             minHeight: isNarrow ? 32 : 32,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              _searchVisible = !_searchVisible;
+                            });
+                          },
                         ),
                         IconButton(
                           icon: Icon(

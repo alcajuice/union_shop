@@ -202,3 +202,13 @@ Why this approach
 
 Centralizing the button list makes it easy to add future center buttons — they will automatically appear in the popup on narrow screens and as text on wide screens.
 Using PopupMenuButton keeps the behavior native and accessible.
+
+**PROMPT 10**
+
+In the header, when clicking on the magnifying glass, create a input box that both
+a) occcupies a small amount of space to the left of the icon when the screen size is large enough
+AND
+b) occupies the whole width of the screen when viewed in mobile view.
+
+When the user has inputted their search query, send them to the search_page
+

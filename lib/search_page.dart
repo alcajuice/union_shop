@@ -17,7 +17,7 @@ class SearchPage extends StatelessWidget {
               child: Column(
                 children: const [
                   SizedBox(height: 24),
-                  Text('Search (placeholder)',
+                  Text('Search Our Site',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   SizedBox(height: 12),
