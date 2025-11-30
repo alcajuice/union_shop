@@ -371,3 +371,50 @@ Create some dummy products using this image:
 https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal.jpg?v=1742201957
 
 On desktop, there should be 3 products per row,and 2 rows in total. In mobile, there should be 2 products per row. Under each product image, add a placeholder title and price subtext.
+
+Perfect! I've added a product grid with 6 dummy products displaying the purple hoodie image. The layout is:
+
+Desktop: 3 products per row (2 rows total = 6 products)
+Mobile: 2 products per row (3 rows total = 6 products)
+Each product card includes:
+
+The purple hoodie image
+A title (e.g., "Purple Hoodie 1", "Purple Hoodie 2", etc.)
+A price (varying from £25.00 to £50.00)
+The products are clickable and navigate to the product page when clicked.
+
+Perfect! I've added a product grid with 6 dummy products displaying the purple hoodie image. The layout is:
+
+Desktop: 3 products per row (2 rows total = 6 products)
+Mobile: 2 products per row (3 rows total = 6 products)
+Each product card includes:
+
+The purple hoodie image
+A title (e.g., "Purple Hoodie 1", "Purple Hoodie 2", etc.)
+A price (varying from £25.00 to £50.00)
+The products are clickable and navigate to the product page when clicked.
+
+**PROMPT 17**
+
+Perfect! I've completely rewritten the product page with the following features:
+
+Layout:
+
+Desktop (wide screens): Image on the left, product details on the right in a side-by-side layout
+Mobile (narrow screens): Image on top, product details below
+Right Side Content (Product Details):
+
+Title: "Classic Purple Hoodie" (large, bold)
+Price: £25.00 (below title)
+Tax Text: "Tax included." (small, gray text)
+Color Dropdown: Rainbow colors (Red, Orange, Yellow, Green, Blue, Indigo, Violet)
+Size Dropdown: XS, S, M, L, XL, XXL
+Quantity Input: User can enter a number (defaults to 1)
+Add to Cart Button: Full-width purple button at the bottom
+Functionality:
+
+All dropdowns are fully functional with state management
+Quantity can be typed in directly
+Add to Cart button shows a confirmation message with the selected options
+Responsive design adapts to screen size
+The page uses the purple hoodie image and maintains your brand's color scheme (purple #4d2963).
