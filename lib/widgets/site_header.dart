@@ -188,6 +188,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                               if (value == 'clothing') {
                                                 Navigator.pushNamed(
                                                     context, '/clothing');
+                                              } else if (value == 'merchandise') {
+                                                Navigator.pushNamed(
+                                                    context, '/merchandise');
                                               }
                                               // Add other shop submenu navigation here
                                             },

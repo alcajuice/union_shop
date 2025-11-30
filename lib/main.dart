@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_page.dart';
 import 'package:union_shop/clothing_page.dart';
+import 'package:union_shop/merchandise_page.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
@@ -33,6 +34,7 @@ class UnionShopApp extends StatelessWidget {
         '/about': (context) => const AboutPage(),
         '/search': (context) => const SearchPage(),
         '/clothing': (context) => const ClothingPage(),
+        '/merchandise': (context) => const MerchandisePage(),
         '/cart': (context) => const CartPage(),
       },
     );
