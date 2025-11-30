@@ -440,4 +440,10 @@ Main Page (Home):
 Each placeholder product card passes its specific title, price, and image URL when clicked
 Now when users click on any product card (whether from the clothing page or home page), the product page will display that specific product's information dynamically!
 
+**PROMPT 19**
+
+Next, create a cart screen. This will be acessible by pressing the bag icon in the header. The middle of the screen should show a title 'Your cart', text saying ;'Your Cart is currently Empty' if the cart is empty. Add a continue shopping button if the cart is empty, which brings you to the main menu., If there are products in the cart, display the product image (scaled down), Color+Size (If applicable), price, quantity and total. Beneath this, add an option to add a note to your order, as well as a subtotal which calculates the price of all items together
+
+
+
 

@@ -269,7 +269,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                             minWidth: isNarrow ? 32 : 32,
                             minHeight: isNarrow ? 32 : 32,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/cart');
+                          },
                         ),
                         // Dropdown menu: only shown on narrow screens. When the
                         // center text buttons are visible (wide screens) the
