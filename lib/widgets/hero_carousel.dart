@@ -16,7 +16,8 @@ class _HeroCarouselState extends State<HeroCarousel> {
 
   final List<Map<String, String>> _carouselItems = [
     {
-      'image': 'https://shop.upsu.net/cdn/shop/files/Signature_T-Shirt_Indigo_Blue_2.jpg?v=1758290534',
+      'image':
+          'https://shop.upsu.net/cdn/shop/files/Signature_T-Shirt_Indigo_Blue_2.jpg?v=1758290534',
       'title': 'Signature Collection',
       'subtitle': 'Discover our premium t-shirt range',
       'buttonText': 'SHOP NOW',
@@ -28,13 +29,15 @@ class _HeroCarouselState extends State<HeroCarousel> {
       'buttonText': 'EXPLORE',
     },
     {
-      'image': 'https://shop.upsu.net/cdn/shop/files/Dominos_-_Shopify_Banner.jpg?v=1638793465',
+      'image':
+          'https://shop.upsu.net/cdn/shop/files/Dominos_-_Shopify_Banner.jpg?v=1638793465',
       'title': 'Special Offers',
       'subtitle': 'Check out our latest deals',
       'buttonText': 'VIEW DEALS',
     },
     {
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCarousel_1853x473_DesignA_01.jpg?v=1639407310',
+      'image':
+          'https://shop.upsu.net/cdn/shop/files/PortsmouthCarousel_1853x473_DesignA_01.jpg?v=1639407310',
       'title': 'Portsmouth Pride',
       'subtitle': 'Show your city spirit',
       'buttonText': 'DISCOVER',
@@ -83,7 +86,8 @@ class _HeroCarouselState extends State<HeroCarousel> {
 
   void _goToPreviousPage() {
     if (_pageController.hasClients) {
-      final previousPage = (_currentPage - 1 + _carouselItems.length) % _carouselItems.length;
+      final previousPage =
+          (_currentPage - 1 + _carouselItems.length) % _carouselItems.length;
       _pageController.animateToPage(
         previousPage,
         duration: const Duration(milliseconds: 300),
@@ -142,7 +146,7 @@ class _HeroCarouselState extends State<HeroCarousel> {
                         return Container(
                           color: Colors.grey[300],
                           child: const Center(
-                            child: Icon(Icons.image_not_supported, 
+                            child: Icon(Icons.image_not_supported,
                                 color: Colors.grey, size: 50),
                           ),
                         );
@@ -232,93 +236,79 @@ class _HeroCarouselState extends State<HeroCarousel> {
             },
           ),
 
-          // Navigation Controls
-          // Left arrow
-          Positioned(
-            left: 16,
-            top: 0,
-            bottom: 0,
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.5),
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.chevron_left, color: Colors.white, size: 32),
-                  onPressed: _goToPreviousPage,
-                ),
-              ),
-            ),
-          ),
-
-          // Right arrow
-          Positioned(
-            right: 16,
-            top: 0,
-            bottom: 0,
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.5),
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.chevron_right, color: Colors.white, size: 32),
-                  onPressed: _goToNextPage,
-                ),
-              ),
-            ),
-          ),
-
-          // Pause/Play button
-          Positioned(
-            right: 16,
-            top: 16,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.5),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: IconButton(
-                icon: Icon(
-                  _isPaused ? Icons.play_arrow : Icons.pause,
-                  color: Colors.white,
-                  size: 28,
-                ),
-                onPressed: _togglePause,
-              ),
-            ),
-          ),
-
-          // Page indicators (dots)
+          // Bottom controls bar with navigation arrows, indicators, and pause button
           Positioned(
             bottom: 20,
             left: 0,
             right: 0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                _carouselItems.length,
-                (index) => GestureDetector(
-                  onTap: () => _goToPage(index),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: _currentPage == index
-                          ? Colors.white
-                          : Colors.white.withValues(alpha: 0.5),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 1,
+              children: [
+                // Left arrow
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.chevron_left,
+                        color: Colors.white, size: 24),
+                    onPressed: _goToPreviousPage,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                // Page indicators (dots)
+                ...List.generate(
+                  _carouselItems.length,
+                  (index) => GestureDetector(
+                    onTap: () => _goToPage(index),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _currentPage == index
+                            ? Colors.white
+                            : Colors.white.withValues(alpha: 0.5),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                const SizedBox(width: 16),
+                // Right arrow
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.chevron_right,
+                        color: Colors.white, size: 24),
+                    onPressed: _goToNextPage,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                // Pause/Play button
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    icon: Icon(
+                      _isPaused ? Icons.play_arrow : Icons.pause,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                    onPressed: _togglePause,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

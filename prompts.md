@@ -256,3 +256,42 @@ Perfect! I've updated both files so that:
 In the header: When the user submits a search query, it now passes the query text as a route argument to the search page
 In the search page: The page now receives the query from the route arguments and automatically populates the search bar with it
 The search query entered in the header will now automatically appear in the search bar on the search page.
+
+**PROMPT 13/14**
+
+I want to update the hero page on the main screen. The hero page should cycle between 4 images, shown below:
+
+1)
+https://shop.upsu.net/cdn/shop/files/Signature_T-Shirt_Indigo_Blue_2.jpg?v=1758290534
+
+2)
+shop.upsu.net/cdn/shop/files/Hoodie.jpg?v=1632306034
+
+3)
+https://shop.upsu.net/cdn/shop/files/Dominos_-_Shopify_Banner.jpg?v=1638793465
+
+4)
+shop.upsu.net/cdn/shop/files/PortsmouthCarousel_1853x473_DesignA_01.jpg?v=1639407310
+
+Over every image, add placeholder title, subtext and a button in the middle. While the hero page automatically scrolls from left to right, allow the user to manually cycle between the images by clicking on arrows, and allow the user to pause the autoscroll with a pause button. You may need to create a new file for this.
+
+Perfect! I've created a hero carousel component with the following features:
+
+Features implemented:
+
+4 images cycling automatically with the URLs you provided
+Auto-scroll: Automatically transitions between images every 5 seconds
+Manual navigation: Left and right arrow buttons to navigate between slides
+Pause button: Top-right button to pause/resume auto-scrolling
+Page indicators: Clickable dots at the bottom showing which slide is active
+Content overlay: Each slide has a title, subtitle, and call-to-action button in the center
+Smooth transitions: Animated slide changes with ease-in-out curve
+What I created:
+
+New file: hero_carousel.dart - A StatefulWidget with PageController managing the carousel state
+Updated main.dart - Replaced the static hero section with the new HeroCarousel component
+The carousel includes a dark overlay on images to ensure text readability, and all controls have semi-transparent backgrounds for visibility.
+
+the arrows to navigate and the pause button should be next to the indicators at the bottom
+
+Done! I've moved all the navigation controls to the bottom in a single row. Now the left arrow, page indicator dots, right arrow, and pause/play button are all positioned together at the bottom of the carousel.
