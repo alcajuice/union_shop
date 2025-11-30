@@ -295,3 +295,37 @@ The carousel includes a dark overlay on images to ensure text readability, and a
 the arrows to navigate and the pause button should be next to the indicators at the bottom
 
 Done! I've moved all the navigation controls to the bottom in a single row. Now the left arrow, page indicator dots, right arrow, and pause/play button are all positioned together at the bottom of the carousel.
+
+**PROMPT 15**
+
+In between the Home and About button in the header, add a button called "Shop". This should be a dropdown menu which includes the following buttons -
+Clothing
+Merchandise
+Halloween
+Signaure & Essential Range
+Portsmouth City Collection
+Pride Collection
+Graduation
+
+Perfect! I've added the "Shop" dropdown menu button between Home and About in the header. The implementation includes:
+
+On wide screens:
+
+The "Shop" button appears with a dropdown arrow between Home and About
+Clicking it opens a dropdown menu with all 7 shop categories:
+Clothing
+Merchandise
+Halloween
+Signature & Essential Range
+Portsmouth City Collection
+Pride Collection
+Graduation
+On narrow/mobile screens:
+
+The menu icon shows all navigation items including:
+Home
+Shop (as a bold header)
+All 7 shop categories (indented under Shop)
+About
+The dropdown is styled consistently with your existing header design using the purple accent color scheme.
+

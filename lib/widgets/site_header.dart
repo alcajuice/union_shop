@@ -185,7 +185,11 @@ class _SiteHeaderState extends State<SiteHeader> {
                                             ),
                                             onSelected: (value) {
                                               // Handle shop submenu navigation
-                                              // Placeholder for now
+                                              if (value == 'clothing') {
+                                                Navigator.pushNamed(
+                                                    context, '/clothing');
+                                              }
+                                              // Add other shop submenu navigation here
                                             },
                                             itemBuilder: (context) {
                                               return shopMenuItems.map((item) {
@@ -281,6 +285,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                   if (value == 'home') navigateToHome();
                                   if (value == 'about') navigateToAbout();
                                   // Handle shop submenu items
+                                  if (value == 'clothing') {
+                                    Navigator.pushNamed(context, '/clothing');
+                                  }
                                 },
                                 itemBuilder: (context) {
                                   final items = <PopupMenuEntry<String>>[];

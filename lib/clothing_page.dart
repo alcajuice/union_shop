@@ -58,7 +58,7 @@ class _ClothingPageState extends State<ClothingPage> {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  
+
                   // Filter and Sort controls
                   isNarrow
                       ? Column(
@@ -71,14 +71,20 @@ class _ClothingPageState extends State<ClothingPage> {
                         )
                       : Row(
                           children: [
-                            Expanded(child: _buildFilterDropdown()),
+                            SizedBox(
+                              width: 350,
+                              child: _buildFilterDropdown(),
+                            ),
                             const SizedBox(width: 24),
-                            Expanded(child: _buildSortDropdown()),
+                            SizedBox(
+                              width: 350,
+                              child: _buildSortDropdown(),
+                            ),
                           ],
                         ),
-                  
+
                   const SizedBox(height: 40),
-                  
+
                   // Placeholder for products
                   const Center(
                     child: Padding(
@@ -134,7 +140,8 @@ class _ClothingPageState extends State<ClothingPage> {
                     });
                   }
                 },
-                items: _filterOptions.map<DropdownMenuItem<String>>((String value) {
+                items: _filterOptions
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -179,7 +186,8 @@ class _ClothingPageState extends State<ClothingPage> {
                     });
                   }
                 },
-                items: _sortOptions.map<DropdownMenuItem<String>>((String value) {
+                items:
+                    _sortOptions.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
