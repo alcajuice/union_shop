@@ -246,3 +246,13 @@ Search input field in a row with the submit button directly to the right
 Purple submit button matching your brand color
 Maximum width constraint (800px) to keep the search bar centered on wide screens
 Button has matching height (56px) with the input field
+
+**PROMPT 12**
+
+When the user inputs from the search bar in the header, and the program moves to the search page, the input from the user should automatically display in the search bar in the middle of the search screen
+
+Perfect! I've updated both files so that:
+
+In the header: When the user submits a search query, it now passes the query text as a route argument to the search page
+In the search page: The page now receives the query from the route arguments and automatically populates the search bar with it
+The search query entered in the header will now automatically appear in the search bar on the search page.
