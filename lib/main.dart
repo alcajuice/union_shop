@@ -151,6 +151,7 @@ class ProductCard extends StatelessWidget {
             'title': title,
             'price': price,
             'imageUrl': imageUrl,
+            'isClothing': false,
           },
         );
       },

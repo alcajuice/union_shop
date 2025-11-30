@@ -217,6 +217,7 @@ class _ClothingPageState extends State<ClothingPage> {
             'price': price,
             'imageUrl':
                 'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+            'isClothing': true,
           },
         );
       },

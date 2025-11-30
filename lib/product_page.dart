@@ -44,6 +44,7 @@ class _ProductPageState extends State<ProductPage> {
     final productPrice = args?['price'] ?? '£25.00';
     final productImage = args?['imageUrl'] ??
         'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957';
+    final isClothing = args?['isClothing'] ?? true;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -58,7 +59,8 @@ class _ProductPageState extends State<ProductPage> {
                       children: [
                         _buildProductImage(productImage),
                         const SizedBox(height: 32),
-                        _buildProductDetails(productTitle, productPrice),
+                        _buildProductDetails(
+                            productTitle, productPrice, isClothing),
                       ],
                     )
                   : Row(
@@ -71,8 +73,8 @@ class _ProductPageState extends State<ProductPage> {
                         const SizedBox(width: 48),
                         Expanded(
                           flex: 1,
-                          child:
-                              _buildProductDetails(productTitle, productPrice),
+                          child: _buildProductDetails(
+                              productTitle, productPrice, isClothing),
                         ),
                       ],
                     ),
@@ -126,7 +128,7 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-  Widget _buildProductDetails(String title, String price) {
+  Widget _buildProductDetails(String title, String price, bool isClothing) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -162,83 +164,87 @@ class _ProductPageState extends State<ProductPage> {
         ),
         const SizedBox(height: 32),
 
-        // Color dropdown
-        const Text(
-          'Color:',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade300),
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: _selectedColor,
-              isExpanded: true,
-              icon: const Icon(Icons.arrow_drop_down),
-              onChanged: (String? newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    _selectedColor = newValue;
-                  });
-                }
-              },
-              items: _colors.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+        // Color dropdown (only for clothing)
+        if (isClothing) ...[
+          const Text(
+            'Color:',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
             ),
           ),
-        ),
-        const SizedBox(height: 24),
+          const SizedBox(height: 8),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade300),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                value: _selectedColor,
+                isExpanded: true,
+                icon: const Icon(Icons.arrow_drop_down),
+                onChanged: (String? newValue) {
+                  if (newValue != null) {
+                    setState(() {
+                      _selectedColor = newValue;
+                    });
+                  }
+                },
+                items: _colors.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+        ],
 
-        // Size dropdown
-        const Text(
-          'Size:',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade300),
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: _selectedSize,
-              isExpanded: true,
-              icon: const Icon(Icons.arrow_drop_down),
-              onChanged: (String? newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    _selectedSize = newValue;
-                  });
-                }
-              },
-              items: _sizes.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+        // Size dropdown (only for clothing)
+        if (isClothing) ...[
+          const Text(
+            'Size:',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
             ),
           ),
-        ),
-        const SizedBox(height: 24),
+          const SizedBox(height: 8),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade300),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                value: _selectedSize,
+                isExpanded: true,
+                icon: const Icon(Icons.arrow_drop_down),
+                onChanged: (String? newValue) {
+                  if (newValue != null) {
+                    setState(() {
+                      _selectedSize = newValue;
+                    });
+                  }
+                },
+                items: _sizes.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+        ],
 
         // Quantity
         const Text(
