@@ -495,6 +495,44 @@ https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799
 
 Clicking on the products should send the user to the product page
 
+Perfect! I've created the merchandise page with:
 
+✓ Title: "Merchandise"
+✓ Filter By dropdown with the options: All Products, Julia Gash, Merchandise, Portsmouth City Collection, PSUT, University Merch
+✓ Sort By dropdown with the same options as the clothing page
+✓ 6 products in a grid (3 per row on desktop, 2 per row on mobile) alternating between:
 
+Portsmouth Postcard (£2.00) using the main/postcard image
+Portsmouth Mug (£8.99) using the mug image you provided
+✓ Products are clickable and navigate to the product page with isClothing: false so color/size options won't appear
+✓ Added the route to main.dart
+✓ Updated the header to navigate to the merchandise page when "Merchandise" is clicked in the Shop dropdown
 
+**PROMPT 20**
+
+In the shop dropdownmenu, the Halloween button will link to a product (no need to create a new collections page). The product name is "Halloween Tote Bages and costs 2.50. This is not a clothing item, so it will not have size or color, but it will have its own unique dropdownmenu with text above it reading "Halloween Tote Bag" - the options for the dropdownmenu are
+Hello Pumpkin
+Ghosts
+Boo!
+The layout should follow existing product pages, image is linked below
+https://shop.upsu.net/cdn/shop/files/Halloween_tote_bag_-_hello_pumpkin_1024x1024@2x.jpg?v=1749136276
+
+Perfect! I've successfully created the Halloween product page. Here's what I implemented:
+
+✓ Created halloween_product_page.dart with:
+
+Product name: "Halloween Tote Bag"
+Price: £2.50
+Image: The Halloween tote bag image you provided
+Custom dropdown with label "Halloween Tote Bag" above it
+Dropdown options: Hello Pumpkin, Ghosts, Boo!
+Quantity input field
+Add to cart button
+Same layout as existing product pages (image on left, details on right for desktop; stacked for mobile)
+✓ Added route /halloween in main.dart
+
+✓ Updated site_header.dart to navigate to the Halloween product page when clicking "Halloween" in the Shop dropdown menu
+
+✓ Updated cart_page.dart to display "Design: " instead of "Size: " for items without a color (non-clothing items like the Halloween tote bag), so it will show "Design: Hello Pumpkin" (or the selected design) in the cart
+
+The Halloween button in the Shop dropdown now links directly to this dedicated product page with its unique design selector!
