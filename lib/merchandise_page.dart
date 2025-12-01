@@ -37,9 +37,9 @@ class _MerchandisePageState extends State<MerchandisePage> {
   final List<Map<String, String>> _products = [
     {
       'title': 'Portsmouth Postcard',
-      'price': '£2.00',
+      'price': '£10.00',
       'imageUrl':
-          'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
     },
     {
       'title': 'Portsmouth ID holder 1',
@@ -49,9 +49,9 @@ class _MerchandisePageState extends State<MerchandisePage> {
     },
     {
       'title': 'Portsmouth Postcard',
-      'price': '£2.00',
+      'price': '£15.00',
       'imageUrl':
-          'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
     },
     {
       'title': 'Portsmouth ID holder 2',
@@ -61,9 +61,9 @@ class _MerchandisePageState extends State<MerchandisePage> {
     },
     {
       'title': 'Portsmouth Postcard',
-      'price': '£2.00',
+      'price': '£20.00',
       'imageUrl':
-          'https://shop.upsu.net/cdn/shop/files/PurpleHoodieFinal_720x.jpg?v=1742201957',
+          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
     },
     {
       'title': 'Portsmouth ID holder 3',
