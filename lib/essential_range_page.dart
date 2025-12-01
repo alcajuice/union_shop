@@ -33,19 +33,52 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
   final List<Map<String, dynamic>> _products = [
     {
       'title': 'Limited Edition Essential Zip Hoodie',
-      'originalPrice': '£20.00',
-      'salePrice': '£14.99',
+      'originalPrice': 20.00,
+      'salePrice': 14.99,
+      'dateAdded': 1,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/files/Pink_Essential_Hoodie_2a3589c2-096f-479f-ac60-d41e8a853d04_720x.jpg?v=1749131089',
     },
     {
       'title': 'Essential T-Shirt',
-      'originalPrice': '£10.00',
-      'salePrice': '£6.99',
+      'originalPrice': 10.00,
+      'salePrice': 6.99,
+      'dateAdded': 2,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/files/Sage_T-shirt_720x.png?v=1759827236',
     },
   ];
+
+  List<Map<String, dynamic>> _getSortedProducts() {
+    var products = List<Map<String, dynamic>>.from(_products);
+
+    switch (_selectedSort) {
+      case 'Alphabetically, A-Z':
+        products.sort((a, b) => a['title'].compareTo(b['title']));
+        break;
+      case 'Alphabetically, Z-A':
+        products.sort((a, b) => b['title'].compareTo(a['title']));
+        break;
+      case 'Price, Low to High':
+        products.sort((a, b) => a['salePrice'].compareTo(b['salePrice']));
+        break;
+      case 'Price, High to Low':
+        products.sort((a, b) => b['salePrice'].compareTo(a['salePrice']));
+        break;
+      case 'Date, Old to New':
+        products.sort((a, b) => a['dateAdded'].compareTo(b['dateAdded']));
+        break;
+      case 'Date, New to Old':
+        products.sort((a, b) => b['dateAdded'].compareTo(a['dateAdded']));
+        break;
+      case 'Featured':
+      case 'Best Selling':
+      default:
+        break;
+    }
+
+    return products;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,22 +151,28 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
                   const SizedBox(height: 40),
 
                   // Products Grid
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: isNarrow ? 2 : 3,
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 24,
-                      childAspectRatio: 0.85,
-                    ),
-                    itemCount: _products.length,
-                    itemBuilder: (context, index) {
-                      return _buildProductCard(
-                        _products[index]['title']!,
-                        _products[index]['originalPrice']!,
-                        _products[index]['salePrice']!,
-                        _products[index]['imageUrl']!,
+                  Builder(
+                    builder: (context) {
+                      final sortedProducts = _getSortedProducts();
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: isNarrow ? 2 : 3,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 24,
+                          childAspectRatio: 0.85,
+                        ),
+                        itemCount: sortedProducts.length,
+                        itemBuilder: (context, index) {
+                          final product = sortedProducts[index];
+                          return _buildProductCard(
+                            product['title'],
+                            '£${product['originalPrice'].toStringAsFixed(2)}',
+                            '£${product['salePrice'].toStringAsFixed(2)}',
+                            product['imageUrl'],
+                          );
+                        },
                       );
                     },
                   ),

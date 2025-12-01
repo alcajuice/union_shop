@@ -34,44 +34,81 @@ class _MerchandisePageState extends State<MerchandisePage> {
   ];
 
   // Product data
-  final List<Map<String, String>> _products = [
+  final List<Map<String, dynamic>> _products = [
     {
       'title': 'Portsmouth Postcard',
-      'price': '£10.00',
+      'price': 10.00,
+      'dateAdded': 1,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
     },
     {
       'title': 'Portsmouth ID holder 1',
-      'price': '£8.99',
+      'price': 8.99,
+      'dateAdded': 2,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799',
     },
     {
       'title': 'Portsmouth Postcard',
-      'price': '£15.00',
+      'price': 15.00,
+      'dateAdded': 3,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
     },
     {
       'title': 'Portsmouth ID holder 2',
-      'price': '£8.99',
+      'price': 8.99,
+      'dateAdded': 4,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799',
     },
     {
       'title': 'Portsmouth Postcard',
-      'price': '£20.00',
+      'price': 20.00,
+      'dateAdded': 5,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
     },
     {
       'title': 'Portsmouth ID holder 3',
-      'price': '£8.99',
+      'price': 8.99,
+      'dateAdded': 6,
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/products/IMG_0651_1024x1024@2x.jpg?v=1557218799',
     },
   ];
+
+  List<Map<String, dynamic>> _getSortedProducts() {
+    var products = List<Map<String, dynamic>>.from(_products);
+
+    switch (_selectedSort) {
+      case 'Alphabetically, A-Z':
+        products.sort((a, b) => a['title'].compareTo(b['title']));
+        break;
+      case 'Alphabetically, Z-A':
+        products.sort((a, b) => b['title'].compareTo(a['title']));
+        break;
+      case 'Price, Low to High':
+        products.sort((a, b) => a['price'].compareTo(b['price']));
+        break;
+      case 'Price, High to Low':
+        products.sort((a, b) => b['price'].compareTo(a['price']));
+        break;
+      case 'Date, Old to New':
+        products.sort((a, b) => a['dateAdded'].compareTo(b['dateAdded']));
+        break;
+      case 'Date, New to Old':
+        products.sort((a, b) => b['dateAdded'].compareTo(a['dateAdded']));
+        break;
+      case 'Featured':
+      case 'Best Selling':
+      default:
+        break;
+    }
+
+    return products;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,21 +164,27 @@ class _MerchandisePageState extends State<MerchandisePage> {
                   const SizedBox(height: 40),
 
                   // Products Grid
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: isNarrow ? 2 : 3,
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 24,
-                      childAspectRatio: 0.85,
-                    ),
-                    itemCount: _products.length,
-                    itemBuilder: (context, index) {
-                      return _buildProductCard(
-                        _products[index]['title']!,
-                        _products[index]['price']!,
-                        _products[index]['imageUrl']!,
+                  Builder(
+                    builder: (context) {
+                      final sortedProducts = _getSortedProducts();
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: isNarrow ? 2 : 3,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 24,
+                          childAspectRatio: 0.85,
+                        ),
+                        itemCount: sortedProducts.length,
+                        itemBuilder: (context, index) {
+                          final product = sortedProducts[index];
+                          return _buildProductCard(
+                            product['title'],
+                            '£${product['price'].toStringAsFixed(2)}',
+                            product['imageUrl'],
+                          );
+                        },
                       );
                     },
                   ),
