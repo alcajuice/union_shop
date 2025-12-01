@@ -168,8 +168,8 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
                           final product = sortedProducts[index];
                           return _buildProductCard(
                             product['title'],
-                            '£${product['originalPrice'].toStringAsFixed(2)}',
-                            '£${product['salePrice'].toStringAsFixed(2)}',
+                            '£${(product['originalPrice'] as num).toStringAsFixed(2)}',
+                            '£${(product['salePrice'] as num).toStringAsFixed(2)}',
                             product['imageUrl'],
                           );
                         },

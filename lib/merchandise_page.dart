@@ -181,7 +181,7 @@ class _MerchandisePageState extends State<MerchandisePage> {
                           final product = sortedProducts[index];
                           return _buildProductCard(
                             product['title'],
-                            '£${product['price'].toStringAsFixed(2)}',
+                            '£${(product['price'] as num).toStringAsFixed(2)}',
                             product['imageUrl'],
                           );
                         },
