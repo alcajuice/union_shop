@@ -582,3 +582,15 @@ Portsmouth City Collection
 
 Sort by options are the same as other sites. Use the same postcard products from the main page
 
+Perfect! I've created the Portsmouth City Collection page with:
+
+✓ Title: "Portsmouth City Collection" with centered layout
+✓ Subtext: The full description about Julia Gash's designs, celebrating Portsmouth's vibrant city with landmarks like Spinnaker Tower and The King's Theatre, available in postcards, magnets, bookmarks, and water bottles
+✓ Filter dropdown: 4 options - "All Products", "Julia Gash", "Merchandise", "Portsmouth City Collection"
+✓ Sort dropdown: Same options as other pages (Featured, Best Selling, Alphabetically A-Z/Z-A, Price Low-High/High-Low, Date Old-New/New-Old)
+✓ 4 Products: Using the same Portsmouth Postcard products from the main page with their images and prices (£10.00, £15.00, £20.00, £25.00)
+✓ All products are clickable and navigate to the product page as non-clothing items
+✓ Added route /portsmouth-city-collection in main.dart
+✓ Updated site_header.dart to navigate to the Portsmouth City Collection page when "Portsmouth City Collection" is clicked in the Shop dropdown
+
+The page showcases Julia Gash's Portsmouth designs with a comprehensive description that highlights the collection's unique features!
