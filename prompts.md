@@ -551,3 +551,17 @@ Essential T-Shirt
 10.00 (In strikethrough) 6.99
 https://shop.upsu.net/cdn/shop/files/Sage_T-shirt_720x.png?v=1759827236
 
+Perfect! I've created the Essential Range page with:
+
+✓ Title: "Essential Range" with centered layout
+✓ Subtext: The full description about everyday wear, versatile must-haves, and modern fits
+✓ Filter dropdown: 2 options - "All Products" and "Clothing"
+✓ Sort dropdown: Same options as other pages (Featured, Best Selling, Alphabetically A-Z/Z-A, Price Low-High/High-Low, Date Old-New/New-Old)
+✓ 2 Products in grid layout:
+
+Limited Edition Essential Zip Hoodie: £20.00 £14.99 (original price shown with strikethrough, sale price in red)
+Essential T-Shirt: £10.00 £6.99 (original price shown with strikethrough, sale price in red)
+✓ Both products use the images you provided and are clickable, navigating to the product page as clothing items
+✓ Added route /essential-range in main.dart
+✓ Updated site_header.dart to navigate to the Essential Range page when "Signature & Essential Range" is clicked in the Shop dropdown
+The page displays the sale prices prominently with the original prices struck through, making the discount clearly visible to users!
