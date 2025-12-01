@@ -195,9 +195,10 @@ class _SiteHeaderState extends State<SiteHeader> {
                                               } else if (value == 'halloween') {
                                                 Navigator.pushNamed(
                                                     context, '/halloween');
-                                              } else if (value == 'signature-essential') {
-                                                Navigator.pushNamed(
-                                                    context, '/essential-range');
+                                              } else if (value ==
+                                                  'signature-essential') {
+                                                Navigator.pushNamed(context,
+                                                    '/essential-range');
                                               }
                                               // Add other shop submenu navigation here
                                             },
