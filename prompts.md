@@ -594,3 +594,25 @@ Perfect! I've created the Portsmouth City Collection page with:
 ✓ Updated site_header.dart to navigate to the Portsmouth City Collection page when "Portsmouth City Collection" is clicked in the Shop dropdown
 
 The page showcases Julia Gash's Portsmouth designs with a comprehensive description that highlights the collection's unique features!
+
+**PROMPT 23**
+
+Can you make the sort by filters actually work - sorting by new to old can be sorted in the order that they were added to the page
+
+Perfect! I've successfully implemented the sorting functionality for all collection pages. Here's what was done:
+
+✓ Clothing Page: Added product metadata (price as number, dateAdded index) and _getSortedProducts() method
+✓ Merchandise Page: Updated product data structure and added sorting logic
+✓ Essential Range Page: Added sorting that uses salePrice for price comparisons
+✓ Portsmouth City Collection Page: Implemented sorting for postcard products
+
+Sorting Options Now Working:
+
+Alphabetically, A-Z: Sorts products by title ascending
+Alphabetically, Z-A: Sorts products by title descending
+Price, Low to High: Sorts by price ascending
+Price, High to Low: Sorts by price descending
+Date, Old to New: Sorts by dateAdded ascending (order they were added)
+Date, New to Old: Sorts by dateAdded descending (newest first)
+Featured/Best Selling: Keeps original order
+The dateAdded field uses sequential numbers (1, 2, 3, etc.) representing the order products were added to each page, so "Date, New to Old" will reverse the display order, and "Date, Old to New" will show them in their original order.
