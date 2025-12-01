@@ -565,3 +565,20 @@ Essential T-Shirt: £10.00 £6.99 (original price shown with strikethrough, sale
 ✓ Added route /essential-range in main.dart
 ✓ Updated site_header.dart to navigate to the Essential Range page when "Signature & Essential Range" is clicked in the Shop dropdown
 The page displays the sale prices prominently with the original prices struck through, making the discount clearly visible to users!
+
+**PROMPT 22**
+
+Create a product page for the signature and essential range. The title should say "Portsmouth City Collection" with subtext beneath it reading "We're excited to launch the Portsmouth City Collection, featuring products by renowned British illustrator Julia Gash, now available in our Students’ Union Shop!
+
+This unique collection celebrates our vibrant city through Julia’s iconic hand-drawn style - full of charm, character, and local landmarks that students and visitors alike will instantly recognise. From the Spinnaker Tower to The King's Theatre, each design captures the spirit of Portsmouth in bold lines and colourful detail.
+
+Available in postcards, magnets, bookmarks and water bottles, these items make perfect mementos, gifts, or affordable keepsakes - whether you’re a new student, proud local, or just passing through."
+
+Filter options should include:
+All Products
+Julia Gash
+Merchandise
+Portsmouth City Collection
+
+Sort by options are the same as other sites. Use the same postcard products from the main page
+

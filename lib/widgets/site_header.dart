@@ -199,6 +199,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                                   'signature-essential') {
                                                 Navigator.pushNamed(context,
                                                     '/essential-range');
+                                              } else if (value == 'portsmouth') {
+                                                Navigator.pushNamed(context,
+                                                    '/portsmouth-city-collection');
                                               }
                                               // Add other shop submenu navigation here
                                             },
