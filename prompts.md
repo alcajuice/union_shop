@@ -536,3 +536,17 @@ Same layout as existing product pages (image on left, details on right for deskt
 ✓ Updated cart_page.dart to display "Design: " instead of "Size: " for items without a color (non-clothing items like the Halloween tote bag), so it will show "Design: Hello Pumpkin" (or the selected design) in the cart
 
 The Halloween button in the Shop dropdown now links directly to this dedicated product page with its unique design selector!
+
+**PROMPT 21**
+Create a product page for the signature and essential range. The title should say "Essential Range" with subtext beneath it reading "Everyday wear, redefined.
+The Essential Collection focuses on versatile must-haves designed for daily rotation. Clean lines, modern fits, and a fresh chest logo bring a contemporary edge to staple t-shirts. Easy to wear, easy to style - these are the essentials your wardrobe can’t do without."
+The filter dropdown menu should have 2 options, All Products and Clothing. The Sort By dropdown menu should be the same as in other pages.
+
+There are only 2 items on this page:
+Limited Ediiton Essential Zip Hoodies
+20.00 (In strikethrough) 14.99
+https://shop.upsu.net/cdn/shop/files/Pink_Essential_Hoodie_2a3589c2-096f-479f-ac60-d41e8a853d04_720x.jpg?v=1749131089
+
+Essential T-Shirt
+10.00 (In strikethrough) 6.99
+https://shop.upsu.net/cdn/shop/files/Sage_T-shirt_720x.png?v=1759827236
