@@ -55,7 +55,8 @@ class _HalloweenProductPageState extends State<HalloweenProductPage> {
                         const SizedBox(width: 48),
                         Expanded(
                           flex: 1,
-                          child: _buildProductDetails(productTitle, productPrice),
+                          child:
+                              _buildProductDetails(productTitle, productPrice),
                         ),
                       ],
                     ),
