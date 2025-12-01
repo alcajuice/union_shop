@@ -93,7 +93,7 @@ class _CartPageState extends State<CartPage> {
                   ],
                   if (item['size'] != null) ...[
                     Text(
-                      'Size: ${item['size']}',
+                      '${item['color'] != null ? 'Size' : 'Design'}: ${item['size']}',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.grey[600],
@@ -197,7 +197,7 @@ class _CartPageState extends State<CartPage> {
                         ],
                         if (item['size'] != null) ...[
                           Text(
-                            'Size: ${item['size']}',
+                            '${item['color'] != null ? 'Size' : 'Design'}: ${item['size']}',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[600],

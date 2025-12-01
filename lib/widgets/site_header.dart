@@ -192,6 +192,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                                   'merchandise') {
                                                 Navigator.pushNamed(
                                                     context, '/merchandise');
+                                              } else if (value == 'halloween') {
+                                                Navigator.pushNamed(
+                                                    context, '/halloween');
                                               }
                                               // Add other shop submenu navigation here
                                             },
