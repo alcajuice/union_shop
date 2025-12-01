@@ -84,22 +84,28 @@ class _MerchandisePageState extends State<MerchandisePage> {
 
     switch (_selectedSort) {
       case 'Alphabetically, A-Z':
-        products.sort((a, b) => a['title'].compareTo(b['title']));
+        products.sort(
+            (a, b) => (a['title'] as String).compareTo(b['title'] as String));
         break;
       case 'Alphabetically, Z-A':
-        products.sort((a, b) => b['title'].compareTo(a['title']));
+        products.sort(
+            (a, b) => (b['title'] as String).compareTo(a['title'] as String));
         break;
       case 'Price, Low to High':
-        products.sort((a, b) => a['price'].compareTo(b['price']));
+        products
+            .sort((a, b) => (a['price'] as num).compareTo(b['price'] as num));
         break;
       case 'Price, High to Low':
-        products.sort((a, b) => b['price'].compareTo(a['price']));
+        products
+            .sort((a, b) => (b['price'] as num).compareTo(a['price'] as num));
         break;
       case 'Date, Old to New':
-        products.sort((a, b) => a['dateAdded'].compareTo(b['dateAdded']));
+        products.sort(
+            (a, b) => (a['dateAdded'] as int).compareTo(b['dateAdded'] as int));
         break;
       case 'Date, New to Old':
-        products.sort((a, b) => b['dateAdded'].compareTo(a['dateAdded']));
+        products.sort(
+            (a, b) => (b['dateAdded'] as int).compareTo(a['dateAdded'] as int));
         break;
       case 'Featured':
       case 'Best Selling':
