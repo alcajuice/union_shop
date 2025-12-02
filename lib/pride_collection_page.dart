@@ -32,7 +32,7 @@ class _PrideCollectionPageState extends State<PrideCollectionPage> {
   // Product data
   final List<Map<String, dynamic>> _products = [
     {
-      'title': 'Limited Edition Essential Zip Hoodie',
+      'title': 'Pride Flag Pin',
       'originalPrice': 1.00,
       'salePrice': 0.50,
       'dateAdded': 1,
