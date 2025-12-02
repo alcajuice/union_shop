@@ -75,7 +75,55 @@ class HomeScreen extends StatelessWidget {
             // Hero Carousel
             const HeroCarousel(),
 
-            // Products Section
+            // Essential Range Section
+            Container(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Column(
+                  children: [
+                    const Text(
+                      'ESSENTIAL RANGE - OVER 20% OFF!',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 48,
+                      children: const [
+                        ProductCard(
+                          title: 'Limited Edition Essential Zip Hoodie',
+                          price: '£14.99',
+                          originalPrice: '£20.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/Pink_Essential_Hoodie_2a3589c2-096f-479f-ac60-d41e8a853d04_720x.jpg?v=1749131089',
+                          isClothing: true,
+                        ),
+                        ProductCard(
+                          title: 'Essential T-Shirt',
+                          price: '£6.99',
+                          originalPrice: '£10.00',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/Sage_T-shirt_720x.png?v=1759827236',
+                          isClothing: true,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Portsmouth City Collection Section
             Container(
               color: Colors.white,
               child: Padding(
@@ -142,13 +190,17 @@ class HomeScreen extends StatelessWidget {
 class ProductCard extends StatelessWidget {
   final String title;
   final String price;
+  final String? originalPrice;
   final String imageUrl;
+  final bool isClothing;
 
   const ProductCard({
     super.key,
     required this.title,
     required this.price,
+    this.originalPrice,
     required this.imageUrl,
+    this.isClothing = false,
   });
 
   @override
@@ -162,7 +214,7 @@ class ProductCard extends StatelessWidget {
             'title': title,
             'price': price,
             'imageUrl': imageUrl,
-            'isClothing': false,
+            'isClothing': isClothing,
           },
         );
       },
@@ -193,10 +245,34 @@ class ProductCard extends StatelessWidget {
                 maxLines: 2,
               ),
               const SizedBox(height: 4),
-              Text(
-                price,
-                style: const TextStyle(fontSize: 13, color: Colors.grey),
-              ),
+              if (originalPrice != null)
+                Row(
+                  children: [
+                    Text(
+                      originalPrice!,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Colors.grey,
+                        decoration: TextDecoration.lineThrough,
+                        decorationColor: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      price,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                )
+              else
+                Text(
+                  price,
+                  style: const TextStyle(fontSize: 13, color: Colors.grey),
+                ),
             ],
           ),
         ],
