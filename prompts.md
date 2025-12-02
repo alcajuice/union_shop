@@ -735,3 +735,25 @@ Updated Site Header - Added "The Print Shack" dropdown menu next to the Shop dro
 About → navigates to Print Shack About page
 Personalisation → navigates to Personalisation product page
 The personalisation details (selected option and text inputs) are stored in the cart with the product. Hot reload to see the new dropdown menu!
+
+**PROMPT 29**
+
+Next tothe print shack dropdown menu, add a button called SALE! this should bring us to the SALE collections page:
+
+Title:Sale
+Subtext:Don’t miss out! Get yours before they’re all gone! \n All prices shown are inclusive of the discount
+
+All products should be the existing products which have a discounted (strikethrough) price. Format the saame as other collection pages
+
+Perfect! Created the SALE collections page with:
+
+Title: "Sale"
+Subtext: "Don't miss out! Get yours before they're all gone! All prices shown are inclusive of the discount"
+All products with discounted prices (strikethrough original price + red sale price):
+Limited Edition Essential Zip Hoodie (£20.00 → £14.99)
+Essential T-Shirt (£10.00 → £6.99)
+Pride Flag Pin (£1.00 → £0.50)
+Crested Tie (£15.00 → £10.99)
+Sort by dropdown (no filter needed since all products are on sale)
+Same format as other collection pages
+Added a red "SALE!" button next to The Print Shack dropdown menu in the header that navigates to the sale page. The button stands out with red background and white bold text. Hot reload to see the changes!
