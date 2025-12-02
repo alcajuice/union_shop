@@ -105,7 +105,7 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
                     child: Column(
                       children: [
                         const Text(
-                          'Essential Range',
+                          'Signature & Essential Range',
                           style: TextStyle(
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
@@ -116,7 +116,8 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
                         Container(
                           constraints: const BoxConstraints(maxWidth: 800),
                           child: Text(
-                            'Everyday wear, redefined.\nThe Essential Collection focuses on versatile must-haves designed for daily rotation. Clean lines, modern fits, and a fresh chest logo bring a contemporary edge to staple t-shirts. Easy to wear, easy to style - these are the essentials your wardrobe can\'t do without.',
+                            '''Discover effortless style and comfort with our latest drop - the Signature & Essential range. The Signature line features premium embroidered hoodies in limited colours, plus the new Signature T-Shirt, combining classic design with elevated details. The Essential line offers versatile, must-have t-shirts with a fresh chest logo design, adding a clean, modern touch to your daily rotation.
+                              \nPlus, grab the limited edition zip hoodie while stocks last - a standout piece designed for those who move differently.''',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 16,
