@@ -203,6 +203,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                                   'portsmouth') {
                                                 Navigator.pushNamed(context,
                                                     '/portsmouth-city-collection');
+                                              } else if (value == 'pride') {
+                                                Navigator.pushNamed(context,
+                                                    '/pride-collection');
                                               }
                                               // Add other shop submenu navigation here
                                             },

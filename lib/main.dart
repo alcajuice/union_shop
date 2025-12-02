@@ -6,6 +6,7 @@ import 'package:union_shop/merchandise_page.dart';
 import 'package:union_shop/halloween_product_page.dart';
 import 'package:union_shop/essential_range_page.dart';
 import 'package:union_shop/portsmouth_city_collection_page.dart';
+import 'package:union_shop/pride_collection_page.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
@@ -42,6 +43,7 @@ class UnionShopApp extends StatelessWidget {
         '/essential-range': (context) => const EssentialRangePage(),
         '/portsmouth-city-collection': (context) =>
             const PortsmouthCityCollectionPage(),
+        '/pride-collection': (context) => const PrideCollectionPage(),
         '/cart': (context) => const CartPage(),
       },
     );
