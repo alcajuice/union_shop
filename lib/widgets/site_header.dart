@@ -206,6 +206,10 @@ class _SiteHeaderState extends State<SiteHeader> {
                                               } else if (value == 'pride') {
                                                 Navigator.pushNamed(context,
                                                     '/pride-collection');
+                                              } else if (value ==
+                                                  'graduation') {
+                                                Navigator.pushNamed(context,
+                                                    '/graduation-collection');
                                               }
                                               // Add other shop submenu navigation here
                                             },

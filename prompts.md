@@ -660,3 +660,38 @@ Click the - button to decrease quantity (minimum 1)
 Click the + button to increase quantity
 The total price updates automatically as quantity changes
 Works on both mobile and desktop layouts
+
+**PROPMT 27**
+
+Create the graduation collections page for the graduation button in the dropdown menu.
+
+Keep Filter and Sort by dropdown menus
+Filter By options include:
+Clothing
+Graduation
+Merchandise
+PSUT
+
+Add these product:
+
+Graduation Hoodies
+35.00
+https://shop.upsu.net/cdn/shop/products/GradGrey_720x.jpg?v=1657288025
+
+Graduation 3/4 Zipped Sweatshirt
+45
+https://shop.upsu.net/cdn/shop/files/Graduation3_4ZipSweatshirt_720x.jpg?v=1685631207
+
+Crested Tie
+15.00 Crossed out 10.99
+https://shop.upsu.net/cdn/shop/products/Tie_720x.jpg?v=1657031719
+
+Perfect! Created the Graduation Collection page with:
+
+Filter options: All Products, Clothing, Graduation, Merchandise, PSUT
+Sort options: Alphabetically A-Z/Z-A, Price Low-High/High-Low, Date Old-New/New-Old
+3 products:
+Graduation Hoodies (£35.00)
+Graduation 3/4 Zipped Sweatshirt (£45.00)
+Crested Tie (£15.00 crossed out → £10.99 in red)
+The Graduation button in the Shop dropdown now navigates to the new page. Hot reload to see the changes!
