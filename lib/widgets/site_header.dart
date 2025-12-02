@@ -417,9 +417,36 @@ class _SiteHeaderState extends State<SiteHeader> {
                                 onSelected: (value) {
                                   if (value == 'home') navigateToHome();
                                   if (value == 'about') navigateToAbout();
+                                  if (value == 'sale')
+                                    Navigator.pushNamed(context, '/sale');
                                   // Handle shop submenu items
                                   if (value == 'clothing') {
                                     Navigator.pushNamed(context, '/clothing');
+                                  } else if (value == 'merchandise') {
+                                    Navigator.pushNamed(
+                                        context, '/merchandise');
+                                  } else if (value == 'halloween') {
+                                    Navigator.pushNamed(context, '/halloween');
+                                  } else if (value == 'signature-essential') {
+                                    Navigator.pushNamed(
+                                        context, '/essential-range');
+                                  } else if (value == 'portsmouth') {
+                                    Navigator.pushNamed(
+                                        context, '/portsmouth-city-collection');
+                                  } else if (value == 'pride') {
+                                    Navigator.pushNamed(
+                                        context, '/pride-collection');
+                                  } else if (value == 'graduation') {
+                                    Navigator.pushNamed(
+                                        context, '/graduation-collection');
+                                  }
+                                  // Handle Print Shack submenu items
+                                  if (value == 'print-shack-about') {
+                                    Navigator.pushNamed(
+                                        context, '/print-shack-about');
+                                  } else if (value == 'personalisation') {
+                                    Navigator.pushNamed(
+                                        context, '/personalisation');
                                   }
                                 },
                                 itemBuilder: (context) {
@@ -441,6 +468,33 @@ class _SiteHeaderState extends State<SiteHeader> {
                                       );
                                       // Add shop submenu items indented
                                       for (var item in shopMenuItems) {
+                                        items.add(
+                                          PopupMenuItem<String>(
+                                            value: item['key'],
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 16),
+                                              child: Text(item['label']!),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    } else if (b['key'] == 'print-shack') {
+                                      // Add Print Shack as header
+                                      items.add(
+                                        PopupMenuItem<String>(
+                                          enabled: false,
+                                          child: Text(
+                                            b['label']!,
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black87,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                      // Add Print Shack submenu items indented
+                                      for (var item in printShackMenuItems) {
                                         items.add(
                                           PopupMenuItem<String>(
                                             value: item['key'],
