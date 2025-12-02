@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class HeroCarousel extends StatefulWidget {
   const HeroCarousel({super.key});
@@ -119,6 +120,27 @@ class _HeroCarouselState extends State<HeroCarousel> {
     }
   }
 
+  void _handleButtonPress(BuildContext context, int index) {
+    switch (index) {
+      case 0: // Essential Range
+        Navigator.pushNamed(context, '/essential-range');
+        break;
+      case 1: // Print Shack - ignore for now
+        break;
+      case 2: // Domino's Pizza
+        _launchURL('https://www.dominos.co.uk');
+        break;
+      case 3: // Student Accommodation
+        _launchURL(
+            'https://www.unitestudents.com/student-accommodation/portsmouth?utm_source=upsu&utm_medium=webbanner_shop&utm_campaign=retention2021&academicYear=2026+-+2027&city=PO&lengthOfStay=Full+Year,Academic+Year&roomTypes=&minPrice=180&maxPrice=234');
+        break;
+    }
+  }
+
+  void _launchURL(String url) {
+    html.window.open(url, '_blank');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -207,7 +229,7 @@ class _HeroCarouselState extends State<HeroCarousel> {
                           const SizedBox(height: 32),
                           ElevatedButton(
                             onPressed: () {
-                              // Placeholder action
+                              _handleButtonPress(context, index);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF4d2963),

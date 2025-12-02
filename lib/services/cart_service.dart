@@ -37,6 +37,13 @@ class CartService extends ChangeNotifier {
     }
   }
 
+  void updateQuantity(int index, int newQuantity) {
+    if (index >= 0 && index < _cartItems.length && newQuantity > 0) {
+      _cartItems[index]['quantity'] = newQuantity;
+      notifyListeners();
+    }
+  }
+
   void clear() {
     _cartItems.clear();
     notifyListeners();

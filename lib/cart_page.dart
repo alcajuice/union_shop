@@ -35,6 +35,12 @@ class _CartPageState extends State<CartPage> {
     _cartService.removeItem(index);
   }
 
+  void _updateQuantity(int index, int newQuantity) {
+    if (newQuantity > 0) {
+      _cartService.updateQuantity(index, newQuantity);
+    }
+  }
+
   Widget _buildCartItem(Map<String, dynamic> item, int index, bool isNarrow) {
     final priceString = item['price'].toString().replaceAll('£', '');
     final price = double.tryParse(priceString) ?? 0;
@@ -108,13 +114,51 @@ class _CartPageState extends State<CartPage> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Quantity: $quantity',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                    ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Text(
+                        'Quantity: ',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey.shade300),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Row(
+                          children: [
+                            InkWell(
+                              onTap: () => _updateQuantity(index, quantity - 1),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 4),
+                                child: const Icon(Icons.remove, size: 16),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 4),
+                              child: Text(
+                                quantity.toString(),
+                                style: const TextStyle(fontSize: 14),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => _updateQuantity(index, quantity + 1),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 4),
+                                child: const Icon(Icons.add, size: 16),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 4),
                   Text(
@@ -233,10 +277,42 @@ class _CartPageState extends State<CartPage> {
             // Quantity
             Expanded(
               flex: 1,
-              child: Text(
-                quantity.toString(),
-                style: const TextStyle(fontSize: 14),
-                textAlign: TextAlign.center,
+              child: Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.shade300),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      InkWell(
+                        onTap: () => _updateQuantity(index, quantity - 1),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4),
+                          child: const Icon(Icons.remove, size: 16),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        child: Text(
+                          quantity.toString(),
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () => _updateQuantity(index, quantity + 1),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4),
+                          child: const Icon(Icons.add, size: 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
             // Total

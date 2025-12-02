@@ -652,13 +652,11 @@ Signature Range section added to the homepage between Essential Range and Portsm
 
 **PROMPT 26**
 
-Create a new page called Pride Collection for the Pride Collection button on the shop dropdown menu.
+In the cart, allow the user to change the quantity of an item they have put in there
 
-The title should say "Pride Collection", no subtext.
-Filter options include All Products and Merchandise,
-Sort options are the same as all other pages.
+Added quantity controls to the cart page! Users can now:
 
-Only incldue this one product for now,
-Pride Flag Pin
-1.00 (crossed out) 0.50
-https://shop.upsu.net/cdn/shop/files/Pin_540x.jpg?v=1749118523
+Click the - button to decrease quantity (minimum 1)
+Click the + button to increase quantity
+The total price updates automatically as quantity changes
+Works on both mobile and desktop layouts
