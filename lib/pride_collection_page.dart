@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
 
-class EssentialRangePage extends StatefulWidget {
-  const EssentialRangePage({super.key});
+class PrideCollectionPage extends StatefulWidget {
+  const PrideCollectionPage({super.key});
 
   @override
-  State<EssentialRangePage> createState() => _EssentialRangePageState();
+  State<PrideCollectionPage> createState() => _PrideCollectionPageState();
 }
 
-class _EssentialRangePageState extends State<EssentialRangePage> {
+class _PrideCollectionPageState extends State<PrideCollectionPage> {
   String _selectedFilter = 'All Products';
   String _selectedSort = 'Featured';
 
