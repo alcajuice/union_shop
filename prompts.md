@@ -649,3 +649,16 @@ Signature T-Shirt
 Same format as before
 
 Signature Range section added to the homepage between Essential Range and Portsmouth City Collection.
+
+**PROMPT 26**
+
+Create a new page called Pride Collection for the Pride Collection button on the shop dropdown menu.
+
+The title should say "Pride Collection", no subtext.
+Filter options include All Products and Merchandise,
+Sort options are the same as all other pages.
+
+Only incldue this one product for now,
+Pride Flag Pin
+1.00 (crossed out) 0.50
+https://shop.upsu.net/cdn/shop/files/Pin_540x.jpg?v=1749118523
