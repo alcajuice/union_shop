@@ -695,3 +695,9 @@ Graduation Hoodies (£35.00)
 Graduation 3/4 Zipped Sweatshirt (£45.00)
 Crested Tie (£15.00 crossed out → £10.99 in red)
 The Graduation button in the Shop dropdown now navigates to the new page. Hot reload to see the changes!
+
+
+**PROMPT 28**
+
+Add visual confirmation when adding something to the cart. The bag icon should have a purple circle with a white number inside displaying how many items are in the cart. aything over 9 items should be displayed as 9+
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/services/cart_service.dart';
 
 /// Reusable site header used on all pages.
 ///
@@ -17,11 +18,23 @@ class SiteHeader extends StatefulWidget {
 class _SiteHeaderState extends State<SiteHeader> {
   bool _searchVisible = false;
   final TextEditingController _searchController = TextEditingController();
+  final CartService _cartService = CartService();
+
+  @override
+  void initState() {
+    super.initState();
+    _cartService.addListener(_onCartChanged);
+  }
 
   @override
   void dispose() {
+    _cartService.removeListener(_onCartChanged);
     _searchController.dispose();
     super.dispose();
+  }
+
+  void _onCartChanged() {
+    setState(() {});
   }
 
   @override
@@ -280,20 +293,56 @@ class _SiteHeaderState extends State<SiteHeader> {
                           ),
                           onPressed: () {},
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.shopping_bag_outlined,
-                            size: isNarrow ? 20 : 18,
-                            color: Colors.grey,
-                          ),
-                          padding: EdgeInsets.all(isNarrow ? 6 : 8),
-                          constraints: BoxConstraints(
-                            minWidth: isNarrow ? 32 : 32,
-                            minHeight: isNarrow ? 32 : 32,
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/cart');
-                          },
+                        Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                Icons.shopping_bag_outlined,
+                                size: isNarrow ? 20 : 18,
+                                color: Colors.grey,
+                              ),
+                              padding: EdgeInsets.all(isNarrow ? 6 : 8),
+                              constraints: BoxConstraints(
+                                minWidth: isNarrow ? 32 : 32,
+                                minHeight: isNarrow ? 32 : 32,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/cart');
+                              },
+                            ),
+                            if (_cartService.itemCount > 0)
+                              Positioned(
+                                right: 2,
+                                top: 2,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 5, vertical: 2),
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFF4d2963),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 16,
+                                    minHeight: 16,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      _cartService.itemCount > 9
+                                          ? '9+'
+                                          : _cartService.itemCount.toString(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 9,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1.0,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
                         ),
                         // Dropdown menu: only shown on narrow screens. When the
                         // center text buttons are visible (wide screens) the
