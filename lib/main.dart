@@ -123,6 +123,52 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+            // Signature Range Section
+            Container(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Column(
+                  children: [
+                    const Text(
+                      'Signature Range',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                    const SizedBox(height: 48),
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                      crossAxisSpacing: 24,
+                      mainAxisSpacing: 48,
+                      children: const [
+                        ProductCard(
+                          title: 'Signature Hoodie',
+                          price: '£32.99',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/SageHoodie_720x.png?v=1745583498',
+                          isClothing: true,
+                        ),
+                        ProductCard(
+                          title: 'Signature T-shirt',
+                          price: '£14.99',
+                          imageUrl:
+                              'https://shop.upsu.net/cdn/shop/files/Signature_T-Shirt_Indigo_Blue_2_720x.jpg?v=1758290534',
+                          isClothing: true,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
             // Portsmouth City Collection Section
             Container(
               color: Colors.white,

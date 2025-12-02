@@ -621,3 +621,31 @@ The dateAdded field uses sequential numbers (1, 2, 3, etc.) representing the ord
 
 In t he homepage, below the hero carousel and above the product portsmouth city collection, add a new collection with the title "ESSNETIAL RANGE - OVER 20% OFF!"
 The 2 products beneath this should be the limited edition essential zip hoodies and the essential t-shirt used in the existing essential range. In the main page, there should only be 2 products per row, similar to the layout of the portsmouth city collection. Retain all functionality such as bringing th e user to the product page on click
+
+Perfect! I've successfully added the Essential Range section to the homepage. Here's what was implemented:
+
+✓ New Essential Range Section placed between the hero carousel and Portsmouth City Collection
+✓ Title: "ESSENTIAL RANGE - OVER 20% OFF!" with bold styling
+✓ 2 Products displayed:
+
+Limited Edition Essential Zip Hoodie (£20.00 £14.99)
+Essential T-Shirt (£10.00 £6.99)
+✓ 2 products per row layout (same as Portsmouth City Collection)
+✓ Product card updated to support:
+Optional originalPrice parameter for showing strikethrough pricing
+isClothing parameter to pass clothing status to product page
+Red sale price display when original price is provided
+✓ Full navigation - clicking products takes users to the product page with proper parameters
+The Essential Range products now display with their sale prices prominently shown in red alongside the strikethrough original prices!
+
+**PROMPT 25**
+
+In the main page, below Essential and above Portsmouth City Collection, add the Signature Range
+
+The 2 products include:
+Signature Hoodie
+Signature T-Shirt
+
+Same format as before
+
+Signature Range section added to the homepage between Essential Range and Portsmouth City Collection.
