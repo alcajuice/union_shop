@@ -709,3 +709,29 @@ Shows "9+" for anything over 9 items
 Updates in real-time when items are added or removed
 Only appears when there are items in the cart
 The badge will automatically update whenever items are added to or removed from the cart. Hot reload to see the changes!
+
+Perfect! I've created:
+
+Print Shack About Page (/print-shack-about) - A simple about page with information about the personalisation service
+
+Personalisation Product Page (/personalisation) with:
+
+Product name: "Personalisation"
+Price: £3.00
+Per Line dropdown with options:
+One Line of Text
+Two Lines of Text
+Three Lines of Text
+Four Lines of Text
+Logo (Front)
+Logo (Back)
+Dynamic text input fields that appear based on the selected option (1-4 lines)
+Quantity selector with +/- buttons
+Add to Cart button
+Product image from the provided URL
+Responsive layout for mobile and desktop
+Updated Site Header - Added "The Print Shack" dropdown menu next to the Shop dropdown with two options:
+
+About → navigates to Print Shack About page
+Personalisation → navigates to Personalisation product page
+The personalisation details (selected option and text inputs) are stored in the cart with the product. Hot reload to see the new dropdown menu!

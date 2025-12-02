@@ -72,10 +72,17 @@ class _SiteHeaderState extends State<SiteHeader> {
       {'key': 'graduation', 'label': 'Graduation'},
     ];
 
+    // Print Shack dropdown menu items
+    final List<Map<String, String>> printShackMenuItems = [
+      {'key': 'print-shack-about', 'label': 'About'},
+      {'key': 'personalisation', 'label': 'Personalisation'},
+    ];
+
     // Central text buttons (kept here so future additions can be reused)
     final List<Map<String, String>> centerButtons = [
       {'key': 'home', 'label': 'Home'},
       {'key': 'shop', 'label': 'Shop'},
+      {'key': 'print-shack', 'label': 'The Print Shack'},
       {'key': 'about', 'label': 'About'},
     ];
 
@@ -228,6 +235,55 @@ class _SiteHeaderState extends State<SiteHeader> {
                                             },
                                             itemBuilder: (context) {
                                               return shopMenuItems.map((item) {
+                                                return PopupMenuItem<String>(
+                                                  value: item['key'],
+                                                  child: Text(item['label']!),
+                                                );
+                                              }).toList();
+                                            },
+                                          )
+                                        else if (b['key'] == 'print-shack')
+                                          PopupMenuButton<String>(
+                                            offset: const Offset(0, 40),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 12,
+                                                      vertical: 8),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Text(
+                                                    b['label']!.toUpperCase(),
+                                                    style: const TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 4),
+                                                  const Icon(
+                                                    Icons.arrow_drop_down,
+                                                    size: 18,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            onSelected: (value) {
+                                              // Handle Print Shack submenu navigation
+                                              if (value ==
+                                                  'print-shack-about') {
+                                                Navigator.pushNamed(context,
+                                                    '/print-shack-about');
+                                              } else if (value ==
+                                                  'personalisation') {
+                                                Navigator.pushNamed(context,
+                                                    '/personalisation');
+                                              }
+                                            },
+                                            itemBuilder: (context) {
+                                              return printShackMenuItems
+                                                  .map((item) {
                                                 return PopupMenuItem<String>(
                                                   value: item['key'],
                                                   child: Text(item['label']!),
