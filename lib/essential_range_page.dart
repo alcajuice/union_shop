@@ -47,6 +47,22 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
       'imageUrl':
           'https://shop.upsu.net/cdn/shop/files/Sage_T-shirt_720x.png?v=1759827236',
     },
+    {
+      'title': 'Signature T-shirt',
+      'originalPrice': null,
+      'salePrice': 14.99,
+      'dateAdded': 3,
+      'imageUrl':
+          'https://shop.upsu.net/cdn/shop/files/Signature_T-Shirt_Indigo_Blue_2_720x.jpg?v=1758290534',
+    },
+    {
+      'title': 'Signature Hoodie',
+      'originalPrice': null,
+      'salePrice': 32.99,
+      'dateAdded': 4,
+      'imageUrl':
+          'https://shop.upsu.net/cdn/shop/files/SageHoodie_720x.png?v=1745583498',
+    },
   ];
 
   List<Map<String, dynamic>> _getSortedProducts() {
