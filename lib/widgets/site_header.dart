@@ -83,6 +83,7 @@ class _SiteHeaderState extends State<SiteHeader> {
       {'key': 'home', 'label': 'Home'},
       {'key': 'shop', 'label': 'Shop'},
       {'key': 'print-shack', 'label': 'The Print Shack'},
+      {'key': 'sale', 'label': 'SALE!'},
       {'key': 'about', 'label': 'About'},
     ];
 
@@ -298,6 +299,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                                 navigateToHome();
                                               if (b['key'] == 'about')
                                                 navigateToAbout();
+                                              if (b['key'] == 'sale')
+                                                Navigator.pushNamed(
+                                                    context, '/sale');
                                             },
                                             style: buttonStyle,
                                             child: Text(

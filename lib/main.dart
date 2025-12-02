@@ -10,6 +10,7 @@ import 'package:union_shop/pride_collection_page.dart';
 import 'package:union_shop/graduation_collection_page.dart';
 import 'package:union_shop/print_shack_about_page.dart';
 import 'package:union_shop/personalisation_page.dart';
+import 'package:union_shop/sale_page.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
@@ -50,6 +51,7 @@ class UnionShopApp extends StatelessWidget {
         '/graduation-collection': (context) => const GraduationCollectionPage(),
         '/print-shack-about': (context) => const PrintShackAboutPage(),
         '/personalisation': (context) => const PersonalisationPage(),
+        '/sale': (context) => const SalePage(),
         '/cart': (context) => const CartPage(),
       },
     );
