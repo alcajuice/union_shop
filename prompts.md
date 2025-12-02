@@ -616,3 +616,8 @@ Date, Old to New: Sorts by dateAdded ascending (order they were added)
 Date, New to Old: Sorts by dateAdded descending (newest first)
 Featured/Best Selling: Keeps original order
 The dateAdded field uses sequential numbers (1, 2, 3, etc.) representing the order products were added to each page, so "Date, New to Old" will reverse the display order, and "Date, Old to New" will show them in their original order.
+
+**PROMPT 24**
+
+In t he homepage, below the hero carousel and above the product portsmouth city collection, add a new collection with the title "ESSNETIAL RANGE - OVER 20% OFF!"
+The 2 products beneath this should be the limited edition essential zip hoodies and the essential t-shirt used in the existing essential range. In the main page, there should only be 2 products per row, similar to the layout of the portsmouth city collection. Retain all functionality such as bringing th e user to the product page on click
