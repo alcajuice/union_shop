@@ -191,7 +191,9 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
                           final product = sortedProducts[index];
                           return _buildProductCard(
                             product['title'],
-                            '£${(product['originalPrice'] as num).toStringAsFixed(2)}',
+                            product['originalPrice'] != null
+                                ? '£${(product['originalPrice'] as num).toStringAsFixed(2)}'
+                                : null,
                             '£${(product['salePrice'] as num).toStringAsFixed(2)}',
                             product['imageUrl'],
                           );
@@ -303,7 +305,7 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
   }
 
   Widget _buildProductCard(
-      String title, String originalPrice, String salePrice, String imageUrl) {
+      String title, String? originalPrice, String salePrice, String imageUrl) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
@@ -352,28 +354,37 @@ class _EssentialRangePageState extends State<EssentialRangePage> {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 4),
-          Row(
-            children: [
-              Text(
-                originalPrice,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[600],
-                  decoration: TextDecoration.lineThrough,
-                  decorationColor: Colors.grey[600],
+          if (originalPrice != null)
+            Row(
+              children: [
+                Text(
+                  originalPrice,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[600],
+                    decoration: TextDecoration.lineThrough,
+                    decorationColor: Colors.grey[600],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                salePrice,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.red,
+                const SizedBox(width: 8),
+                Text(
+                  salePrice,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.red,
+                  ),
                 ),
+              ],
+            )
+          else
+            Text(
+              salePrice,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey[600],
               ),
-            ],
-          ),
+            ),
         ],
       ),
     );
