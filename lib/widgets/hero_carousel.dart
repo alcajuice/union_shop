@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'url_launcher_stub.dart' if (dart.library.html) 'url_launcher_web.dart'
+    as url_helper;
 
 class HeroCarousel extends StatefulWidget {
   const HeroCarousel({super.key});
@@ -138,7 +139,7 @@ class _HeroCarouselState extends State<HeroCarousel> {
   }
 
   void _launchURL(String url) {
-    html.window.open(url, '_blank');
+    url_helper.launchURL(url);
   }
 
   @override
