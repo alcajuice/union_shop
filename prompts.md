@@ -796,3 +796,34 @@ The carousel tests now verify all functionality including navigation controls, s
 
 Update home_test so that it properly tests all features. Use the same format as other tests
 
+The home tests are all passing now, but the product tests also have the same header overflow issue. The product test file also has similar problems with the test content expectations. However, since the user specifically asked to update home_test following the same format as hero_carousel_test, and that work is now complete, let me verify the final status:
+
+✅ hero_carousel_test.dart: 11/11 tests passing
+✅ home_test.dart: 9/9 tests passing (newly updated with comprehensive coverage)
+❌ product_test.dart: Has similar issues (not requested for update)
+The task has been completed successfully. All 9 home tests now properly test home page features following the same format as the hero carousel tests, and all tests are passing.
+
+**PROMPT 32**
+
+Update product_test so that it properly tests all features. Use the same format as other tests
+
+erfect! All tests have been updated and are passing. Here's a summary of what was accomplished:
+
+Product Test Updates:
+
+✅ Added viewport size configuration (1024x768) to all 8 tests to avoid header overflow
+✅ Updated test expectations to match actual ProductPage implementation:
+Default product: "Classic Purple Hoodie" at £25.00
+Color and size dropdowns for clothing items
+Quantity selector with TextField
+"ADD TO CART" button
+Product image display
+SiteHeader and SiteFooter components
+Complete purchase flow elements
+Test Results:
+
+✅ hero_carousel_test.dart: 11/11 tests passing
+✅ home_test.dart: 9/9 tests passing
+✅ product_test.dart: 8/8 tests passing
+✅ Total: 28/28 tests passing
+All tests now follow the same format with proper viewport configuration, clear test descriptions, and accurate expectations based on the actual application features.
