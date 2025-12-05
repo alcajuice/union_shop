@@ -50,6 +50,15 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
     }
   }
 
+  String _calculatePrice() {
+    int numberOfLines = _getNumberOfLines();
+    if (numberOfLines == 0) {
+      return '£3.00';
+    }
+    int totalPrice = numberOfLines * 3;
+    return '£$totalPrice.00';
+  }
+
   void _addToCart() {
     // Build the personalisation details
     String personalisationDetails = _selectedOption;
@@ -68,7 +77,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
 
     CartService().addToCart(
       title: 'Personalisation',
-      price: '£3.00',
+      price: _calculatePrice(),
       imageUrl:
           'https://shop.upsu.net/cdn/shop/products/Personalised_Image_1024x1024@2x.jpg?v=1562949869',
       quantity: _quantity,
@@ -186,11 +195,18 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
           ),
         ),
         const SizedBox(height: 16),
-        const Text(
-          '£3.00',
-          style: TextStyle(
+        Text(
+          _calculatePrice(),
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w500,
+          ),
+        ),
+        Text(
+          '(£3.00 per line)',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey[600],
           ),
         ),
         const SizedBox(height: 8),
