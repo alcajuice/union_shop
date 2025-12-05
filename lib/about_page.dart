@@ -7,30 +7,30 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             // Use the shared header and mark 'about' active so it underlines
-            const SiteHeader(active: 'about'),
+            SiteHeader(active: 'about'),
 
             // Simple placeholder content at the top center under the header
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24),
 
                   // Top-centered bold About heading
-                  const Text(
+                  Text(
                     'About us',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
 
-                  const Text(
+                  Text(
                     '''Welcome to the Union Shop!
 
 We’re dedicated to giving you the very best University branded products, with a
@@ -49,8 +49,8 @@ The Union Shop & Reception Team​​​​​​​​​''',
                 ],
               ),
             ),
-            const SizedBox(height: 24),
-            const SiteFooter(),
+            SizedBox(height: 24),
+            SiteFooter(),
           ],
         ),
       ),

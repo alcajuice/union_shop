@@ -31,7 +31,9 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
 
   @override
   void dispose() {
-    _lineControllers.values.forEach((controller) => controller.dispose());
+    for (var controller in _lineControllers.values) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
