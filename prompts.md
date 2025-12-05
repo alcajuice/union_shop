@@ -827,3 +827,44 @@ Test Results:
 ✅ product_test.dart: 8/8 tests passing
 ✅ Total: 28/28 tests passing
 All tests now follow the same format with proper viewport configuration, clear test descriptions, and accurate expectations based on the actual application features.
+
+**PROMPT 33**
+
+Create individual tests for the header and footer. Test button functionality, same format as other tests
+
+Excellent! All 50 tests are passing. Here's what was created:
+
+New Test Files Created:
+site_header_test.dart - 11 comprehensive tests:
+✅ Logo display
+✅ Navigation buttons (HOME, SHOP, THE PRINT SHACK, SALE!, ABOUT)
+✅ Icon buttons (search, person, shopping bag)
+✅ Shop dropdown menu with 7 items (Clothing, Merchandise, Halloween, etc.)
+✅ Print Shack dropdown menu with 2 items (About, Personalisation)
+✅ Search visibility toggle functionality
+✅ Cart badge display
+✅ Active page underline
+✅ Menu icon in narrow viewport
+✅ All interactive elements present
+✅ Dropdown menu count verification
+site_footer_test.dart - 11 comprehensive tests:
+✅ Opening hours section with winter break dates
+✅ Term time hours display
+✅ Help and information section
+✅ Latest offers section
+✅ Email subscription input field
+✅ Subscribe button display
+✅ Subscribe button functionality (clears email on click)
+✅ Search button functionality
+✅ Terms and conditions button
+✅ All three sections displayed together
+✅ Narrow viewport layout handling
+✅ All interactive elements present
+Complete Test Suite Status:
+Hero Carousel: 11 tests ✅
+Home Page: 9 tests ✅
+Product Page: 8 tests ✅
+Site Header: 11 tests ✅
+Site Footer: 11 tests ✅
+Total: 50/50 tests passing ✅
+All tests follow the same format with proper viewport configuration, test button functionality, and comprehensive feature coverage.
