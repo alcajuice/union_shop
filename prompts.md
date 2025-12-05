@@ -757,3 +757,37 @@ Crested Tie (£15.00 → £10.99)
 Sort by dropdown (no filter needed since all products are on sale)
 Same format as other collection pages
 Added a red "SALE!" button next to The Print Shack dropdown menu in the header that navigates to the sale page. The button stands out with red background and white bold text. Hot reload to see the changes!
+
+**PROMPT 30**
+
+add testing for the hero carousel. To test for user input, use await tester.pump, similar to existing tests made in home_test and product_test.
+
+Excellent! Hero carousel testing is now complete. Here's what was done:
+
+Hero Carousel Testing Implementation
+Fixed dart:html Compatibility Issue:
+
+Created conditional imports to handle web-specific dart:html library
+Added url_launcher_web.dart for web platform (uses dart:html)
+Added url_launcher_stub.dart for test environment (no-op implementation)
+Updated hero_carousel.dart to use conditional imports
+Test Suite Coverage (11 tests, all passing):
+
+✅ Initial slide display verification
+✅ Navigation controls presence (arrows, pause, indicators)
+✅ Next slide navigation with right arrow
+✅ Previous slide navigation with left arrow (wraps around)
+✅ Pause/play toggle functionality
+✅ Navigation through all 4 slides sequentially
+✅ Indicator dot navigation (tap dots to jump to slides)
+✅ BROWSE COLLECTION button responsiveness
+✅ FIND OUT MORE button responsiveness
+✅ All carousel buttons present with correct text
+✅ Carousel state maintenance when paused
+Testing Approach:
+
+Used await tester.pump() for incremental UI updates as requested
+Used await tester.pumpAndSettle() for async animations
+Isolated carousel widget testing to avoid unrelated rendering issues
+Verified user interactions (taps, button presses, navigation)
+The carousel tests now verify all functionality including navigation controls, slide transitions, pause/play toggling, and button interactions.
