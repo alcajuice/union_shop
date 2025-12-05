@@ -26,9 +26,9 @@ class _SiteFooterState extends State<SiteFooter> {
       textStyle: const TextStyle(fontSize: 14),
     );
 
-    Widget openingHoursColumn = Column(
+    Widget openingHoursColumn = const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Text(
           'Opening Hours',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

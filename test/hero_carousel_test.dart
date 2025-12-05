@@ -6,7 +6,7 @@ void main() {
   group('Hero Carousel Tests', () {
     Widget createTestWidgetWithRoutes() {
       return MaterialApp(
-        home: Scaffold(
+        home: const Scaffold(
           body: SizedBox(
             width: 1200,
             height: 600,

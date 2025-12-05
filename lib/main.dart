@@ -12,6 +12,7 @@ import 'package:union_shop/print_shack_about_page.dart';
 import 'package:union_shop/personalisation_page.dart';
 import 'package:union_shop/sale_page.dart';
 import 'package:union_shop/cart_page.dart';
+import 'package:union_shop/checkout_page.dart';
 import 'package:union_shop/widgets/site_header.dart';
 import 'package:union_shop/widgets/site_footer.dart';
 import 'package:union_shop/widgets/hero_carousel.dart';
@@ -53,6 +54,7 @@ class UnionShopApp extends StatelessWidget {
         '/personalisation': (context) => const PersonalisationPage(),
         '/sale': (context) => const SalePage(),
         '/cart': (context) => const CartPage(),
+        '/checkout': (context) => const CheckoutPage(),
       },
     );
   }

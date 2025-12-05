@@ -73,7 +73,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
         }
       }
       if (lines.isNotEmpty) {
-        personalisationDetails += ' - ' + lines.join(', ');
+        personalisationDetails += ' - ${lines.join(', ')}';
       }
     }
 

@@ -554,7 +554,7 @@ class _CartPageState extends State<CartPage> {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          // TODO: Implement checkout functionality
+                          Navigator.pushNamed(context, '/checkout');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF4d2963),

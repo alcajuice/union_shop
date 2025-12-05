@@ -93,10 +93,10 @@ class _PrideCollectionPageState extends State<PrideCollectionPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Title and Description
-                  Center(
+                  const Center(
                     child: Column(
                       children: [
-                        const Text(
+                        Text(
                           'Pride Collection',
                           style: TextStyle(
                             fontSize: 36,

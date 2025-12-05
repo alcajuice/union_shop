@@ -145,12 +145,12 @@ class _SiteHeaderState extends State<SiteHeader> {
                               autofocus: true,
                               decoration: InputDecoration(
                                 hintText: 'Search...',
-                                border: OutlineInputBorder(),
+                                border: const OutlineInputBorder(),
                                 isDense: true,
-                                contentPadding: EdgeInsets.symmetric(
+                                contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 12, vertical: 10),
                                 suffixIcon: IconButton(
-                                  icon: Icon(Icons.close, size: 18),
+                                  icon: const Icon(Icons.close, size: 18),
                                   onPressed: () {
                                     setState(() {
                                       _searchVisible = false;
@@ -295,13 +295,16 @@ class _SiteHeaderState extends State<SiteHeader> {
                                         else
                                           TextButton(
                                             onPressed: () {
-                                              if (b['key'] == 'home')
+                                              if (b['key'] == 'home') {
                                                 navigateToHome();
-                                              if (b['key'] == 'about')
+                                              }
+                                              if (b['key'] == 'about') {
                                                 navigateToAbout();
-                                              if (b['key'] == 'sale')
+                                              }
+                                              if (b['key'] == 'sale') {
                                                 Navigator.pushNamed(
                                                     context, '/sale');
+                                              }
                                             },
                                             style: buttonStyle,
                                             child: Text(
@@ -409,7 +412,7 @@ class _SiteHeaderState extends State<SiteHeader> {
                         // menu button is hidden.
                         isNarrow
                             ? PopupMenuButton<String>(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.menu,
                                   size: 20,
                                   color: Colors.grey,
@@ -417,8 +420,9 @@ class _SiteHeaderState extends State<SiteHeader> {
                                 onSelected: (value) {
                                   if (value == 'home') navigateToHome();
                                   if (value == 'about') navigateToAbout();
-                                  if (value == 'sale')
+                                  if (value == 'sale') {
                                     Navigator.pushNamed(context, '/sale');
+                                  }
                                   // Handle shop submenu items
                                   if (value == 'clothing') {
                                     Navigator.pushNamed(context, '/clothing');
