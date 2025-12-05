@@ -791,3 +791,8 @@ Used await tester.pumpAndSettle() for async animations
 Isolated carousel widget testing to avoid unrelated rendering issues
 Verified user interactions (taps, button presses, navigation)
 The carousel tests now verify all functionality including navigation controls, slide transitions, pause/play toggling, and button interactions.
+
+**PROMPT 31**
+
+Update home_test so that it properly tests all features. Use the same format as other tests
+
